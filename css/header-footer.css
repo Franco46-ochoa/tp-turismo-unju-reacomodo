@@ -1,0 +1,278 @@
+/* 1. VARIABLES GLOBALES */
+:root {
+    --color-accent: #FF5722;
+    --color-texto: #111111;
+    --color-fondo: #ffffff;
+    --color-acento: #e74c3c;
+    --fuente-principal: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --color-radio-fondo: #2c3e50;   /* azul oscuro, se ve bien en claro y oscuro */
+    --color-radio-texto: #ffffff;
+    --color-primario: #a0c5ec;
+}
+
+/* MODO OSCURO — sobreescribe las variables */
+body.dark-mode {
+    --color-fondo: #121212;
+    --color-texto: #f0f0f0;
+    --primary-color: #4da6ff;
+    --color-acento: #ff6b4a;
+    --color-radio-fondo: rgba(32, 117, 187, 0.856);
+    --color-radio-texto: #f0f0f0;
+}
+/* 2.RESET DE ESTILOS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: var(--fuente-principal);
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+}
+/* --- 3. NAVEGACIÓN --- */
+.header {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    z-index: 10; 
+}
+.logo {
+    color: var(--color-texto);
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+.nav-menu ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+}
+.nav-menu a {
+    color: var(--color-texto);
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.3s;
+}
+.nav-menu a:hover {
+    color: var(--color-acento);
+}
+.mod-oscuro {
+    background: none;
+    border: none;
+    color: var(--color-texto);
+    cursor: pointer;
+}
+/*Boton oscuro*/
+.mod-oscuro .fa-sun {
+    display: none;
+}
+
+body.dark-mode .mod-oscuro .fa-moon {
+    display: none;
+}
+
+body.dark-mode .mod-oscuro .fa-sun {
+    display: inline;
+}
+/* ---SUBMENU--- */
+.nav-menu ul li.dropdown {
+    position: relative;
+}
+/*---Submenú oculto---*/
+.nav-menu .submenu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+}
+/*---Submenú visible al hacer hover---*/
+.nav-menu li.dropdown:hover .submenu {
+    display: flex;
+}
+.nav-menu .dropdown i {
+    transition: transform 0.3s;
+}
+.nav-menu .dropdown:hover i {
+    transform: rotate(180deg);
+}
+main{
+    flex-grow: 1;
+}
+/* ---4. FOOTER--- */
+
+/* --- 4.1 Estructura principal --- */
+.footer {
+    background-color: var(--color-primario);
+    color: var(--color-texto);
+    padding: 30px 0 10px;
+    position: relative;
+    z-index: 5;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columnas iguales */
+    gap: 20px;
+}
+
+/* --- 4.2 Redes sociales --- */
+.redes-sociales {
+    display: flex;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.redes-sociales a {
+    color: var(--color-texto);
+    font-size: 1.5rem;
+    transition: color 0.3s;       /* Siempre especificá qué propiedad transicionás */
+}
+
+.redes-sociales a:hover {
+    color: var(--color-acento);
+}
+
+/* --- Contenedor del radial --- */
+.radial-nav {
+    position: relative;
+    width: 56px;
+    height: 56px;
+    margin: 50px auto; /* espacio para que los ítems no se corten */
+}
+.radiales-wrapper {
+    display: flex;
+    flex-direction: row;   /* lado a lado */
+    gap: 60px;             /* espacio entre los dos radiales */
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    align-items: center;
+}
+
+/* --- Botón central --- */
+.radial-btn-main {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    background: var(--color-radio-fondo);
+    color: var(--color-radio-texto);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 500;
+    position: relative;
+    z-index: 10;
+    transition: background 0.3s, border-color 0.3s, transform 0.3s;
+}
+
+.radial-nav:hover .radial-btn-main {
+    background: rgba(231, 76, 60, 0.85); /* var(--color-acento) */
+    border-color: var(--color-acento);
+    transform: scale(1.05);
+}
+
+/* --- Ítems flotantes --- */
+.radial-nav-item {
+    position: absolute;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: rgba(44, 62, 80, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: white;
+    font-size: 11px;
+    font-weight: 500;
+    text-align: center;
+    line-height: 1.2;
+    padding: 4px;
+    opacity: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: opacity 0.4s ease 0.15s, transform 0.4s ease 0.15s;
+}
+
+.radial-nav-item:hover {
+    background: var(--color-acento);
+    border-color: var(--color-acento);
+}
+
+/* --- Posiciones menú navegación (5 ítems en arco hacia arriba) --- */
+.radial-nav:hover .radial-nav-item:nth-child(1) { opacity:1; transform: translate(calc(-50% + 0px),   calc(-50% - 85px)) scale(1); transition-delay: 0s; }
+.radial-nav:hover .radial-nav-item:nth-child(2) { opacity:1; transform: translate(calc(-50% + 80px),  calc(-50% - 55px)) scale(1); transition-delay: 0.04s; }
+.radial-nav:hover .radial-nav-item:nth-child(3) { opacity:1; transform: translate(calc(-50% + 80px),  calc(-50% + 30px)) scale(1); transition-delay: 0.08s; }
+.radial-nav:hover .radial-nav-item:nth-child(4) { opacity:1; transform: translate(calc(-50% - 80px),  calc(-50% + 30px)) scale(1); transition-delay: 0.12s; }
+.radial-nav:hover .radial-nav-item:nth-child(5) { opacity:1; transform: translate(calc(-50% - 80px),  calc(-50% - 55px)) scale(1); transition-delay: 0.16s; }
+
+/* --- Posiciones menú destinos (6 ítems, círculo completo) --- */
+.radial-nav:hover .radial-dest:nth-child(1) { opacity:1; transform: translate(calc(-50% + 0px),   calc(-50% - 95px)) scale(1); transition-delay: 0s; }
+.radial-nav:hover .radial-dest:nth-child(2) { opacity:1; transform: translate(calc(-50% + 90px),  calc(-50% - 50px)) scale(1); transition-delay: 0.04s; }
+.radial-nav:hover .radial-dest:nth-child(3) { opacity:1; transform: translate(calc(-50% + 90px),  calc(-50% + 40px)) scale(1); transition-delay: 0.08s; }
+.radial-nav:hover .radial-dest:nth-child(4) { opacity:1; transform: translate(calc(-50% + 0px),   calc(-50% + 90px)) scale(1); transition-delay: 0.12s; }
+.radial-nav:hover .radial-dest:nth-child(5) { opacity:1; transform: translate(calc(-50% - 90px),  calc(-50% + 40px)) scale(1); transition-delay: 0.16s; }
+.radial-nav:hover .radial-dest:nth-child(6) { opacity:1; transform: translate(calc(-50% - 90px),  calc(-50% - 50px)) scale(1); transition-delay: 0.20s; }
+/* --- 4.4 Formulario newsletter --- */
+.footer-links form {
+    display: flex;
+    gap: 5px;
+    margin-top: 20px;
+}
+
+.footer-links input {
+    flex-grow: 1;                 /* Ocupa todo el espacio disponible */
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    outline: none;
+}
+
+.footer-links button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    background-color: var(--color-acento);
+    color: var(--color-primario);
+    font-weight: bold;
+    cursor: pointer;
+    transition: filter 0.3s;
+}
+
+.footer-links button:hover {
+    filter: brightness(1.2);
+}
+
+/* --- 4.5 Mapa --- */
+.mapa-contenedor {
+    height: 180px;
+    border-radius: 8px;
+    overflow: hidden;             /* Recorta el iframe a los bordes redondeados */
+    margin-top: 10px;
+}
+
+/* --- 4.6 Barra inferior (copyright) --- */
+.footer-bottom {
+    margin-top: 10px;
+    padding-top: 5px;
+    border-top: 1px solid rgba(255, 0, 0, 0.1);
+    text-align: center;
+    
+}
