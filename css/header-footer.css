@@ -8,6 +8,7 @@
     --color-radio-fondo: #2c3e50;   /* azul oscuro, se ve bien en claro y oscuro */
     --color-radio-texto: #ffffff;
     --color-primario: #a0c5ec;
+    --fondo-oscuro: rgba(255, 245, 245, 0.26);
 }
 
 /* MODO OSCURO — sobreescribe las variables */
@@ -18,6 +19,7 @@ body.dark-mode {
     --color-acento: #ff6b4a;
     --color-radio-fondo: rgba(32, 117, 187, 0.856);
     --color-radio-texto: #f0f0f0;
+    --fondo-oscuro: rgba(27, 26, 26, 0.26);
 }
 /* 2.RESET DE ESTILOS */
 * {

@@ -38,7 +38,85 @@
         </nav>
     </header>
     <main>  
+        <section class="hero">
+            <video autoplay loop muted playsinline class="video-fondo">
+                <source src="assets/video-fondo.mp4" type="video/mp4">
+            </video>
+            <div class="overlay"></div>
+            
+            <div class="hero-container">
+                <div class="hero-contenido">
+                    <h1 class="titulo-animado">Descubrí tu próximo destino</h1>
+                    <p class="subtitulo-hero">Explorá los mejores paisajes con nosotros</p>
+                </div>
 
+                <div class="destinos">
+                    <h2 class="subtitulo">Destinos Destacados</h2>
+                    <div class="destinos-grid">
+                        <div class="card">
+                            <img src="assets/purmamarca.jpg" alt="Cerro de los Siete Colores en Purmamarca">
+                            <div class="card-info">
+                                <h3>Purmamarca</h3>
+                                <p>Cerro de los Siete Colores.</p>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <img src="assets/salinas.jpg" alt="Paisaje blanco de Salinas Grandes">
+                            <div class="card-info">
+                                <h3>Salinas Grandes</h3>
+                                <p>Un mar de sal a 4000 metros.</p>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <img src="assets/humahuaca.jpg" alt="Iglesia y cultura en Humahuaca">
+                            <div class="card-info">
+                                <h3>Humahuaca</h3>
+                                <p>Cultura y colores milenarios.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <section class="estadisticas">
+                    <div class="stat-item">
+                        <span class="count" data-goal="500"></span>
+                        <p>Visitantes Felices</p>
+                    </div>
+                </section>
+            </div>
+            
+        </section>
+
+        <section class="testimonios-seccion">
+            <h2 class="subtitulo">Lo que dicen nuestros viajeros</h2>
+            
+            <div class="carrusel-contenedor">
+                <input type="radio" name="slider" id="item-1" checked>
+                <input type="radio" name="slider" id="item-2">
+                <input type="radio" name="slider" id="item-3">
+
+                <div class="slides">
+                    <div class="slide">
+                        <p>"La mejor experiencia en Jujuy. BlueHorizon es impecable."</p>
+                        <span>- Juan Pérez</span>
+                    </div>
+                    <div class="slide">
+                        <p>"Increíbles los paquetes a las Salinas. Muy puntual todo."</p>
+                        <span>- María García</span>
+                    </div>
+                    <div class="slide">
+                        <p>"Paisajes soñados y una atención humana excepcional."</p>
+                        <span>- Carlos Ruiz</span>
+                    </div>
+                </div>
+
+                <div class="dots">
+                    <label for="item-1"></label>
+                    <label for="item-2"></label>
+                    <label for="item-3"></label>
+                </div>
+            </div>
+        </section>
     </main>
     <footer class="footer">
         <div class="footer-container">

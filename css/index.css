@@ -1,0 +1,350 @@
+/*--- Video de fondo fijo al hacer scroll ---*/
+.video-fondo {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    transform: translate(-50%, -50%);
+    z-index: -2;
+    object-fit: cover;
+}
+
+/*--- Overlay oscuro sobre el video ---*/
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--fondo-oscuro);
+    z-index: -1;
+}
+
+/*--- Sección Hero principal ---*/
+.hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    overflow: hidden;
+}
+
+/*--- Contenedor centrado del Hero ---*/
+.hero-container {
+    z-index: 2;
+    width: 100%;
+    max-width: 1200px;
+    padding: 120px 20px 50px;
+    text-align: center;
+}
+
+/*--- Título principal con animación de entrada ---*/
+.titulo-animado {
+    font-size: 4rem;
+    color: var(--color-texto);
+    animation: subir 1.5s ease-out forwards;
+}
+
+/*--- Subtítulo debajo del título principal ---*/
+.subtitulo-hero {
+    color: var(--color-texto-claro);
+    font-size: 1.2rem;
+    margin-bottom: 80px;
+}
+
+/*--- Animación de entrada desde abajo ---*/
+@keyframes subir {
+    0% { opacity: 0; transform: translateY(50px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/*--- Sección de destinos destacados ---*/
+.destinos {
+    margin-top: 40px;
+    text-align: center;
+    padding: 0 20px;
+}
+
+/*--- Subtítulo de secciones ---*/
+.subtitulo {
+    color: var(--color-texto);
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+}
+
+/*--- Grid de cards de destinos ---*/
+.destinos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    justify-content: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/*--- Card individual de destino ---*/
+.card {
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    height: 400px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    transition: 0.4s;
+}
+
+/*--- Efecto hover: sube la card ---*/
+.card:hover {
+    transform: translateY(-10px);
+}
+
+/*--- Imagen de la card ---*/
+.card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.5s;
+}
+
+/*--- Efecto hover: zoom en la imagen ---*/
+.card:hover img {
+    transform: scale(1.1);
+}
+
+/*--- Información superpuesta en la card ---*/
+.card-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 25px;
+    background: linear-gradient(transparent, rgba(0,0,0,0.9));
+    color: white;
+    text-align: left;
+}
+
+/*--- Sección del contador de visitantes ---*/
+.estadisticas {
+    margin-top: 60px;
+    text-align: center;
+}
+
+/*--- Ítem individual del contador ---*/
+.stat-item {
+    display: inline-block;
+}
+
+/*--- Número del contador ---*/
+.count {
+    font-size: 3rem;
+    font-weight: bold;
+    color: var(--color-texto);
+    display: inline-block;
+}
+
+/*--- Variable CSS animable para el contador ---*/
+@property --num {
+    syntax: '<integer>';
+    inherits: false;
+    initial-value: 0;
+}
+
+/*--- Animación del contador con CSS counter ---*/
+.count {
+    animation: contar 3s ease-out forwards;
+    counter-reset: num var(--num);
+}
+
+/*--- Muestra el número animado con signo + ---*/
+.count::after {
+    content: counter(num) "+";
+}
+
+/*--- Keyframe: cuenta de 0 a 500 ---*/
+@keyframes contar {
+    from { --num: 0; }
+    to   { --num: 500; }
+}
+
+/*--- Sección de testimonios ---*/
+.testimonios-seccion {
+    padding: 60px 20px;
+    text-align: center;
+    background: var(--fondo-oscuro);
+}
+
+/*--- Contenedor del carrusel ---*/
+.carrusel-contenedor {
+    position: relative;
+    max-width: 500px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+/*--- Fila de slides ---*/
+.slides {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+/*--- Card individual de testimonio ---*/
+.slide {
+    min-width: 100%;
+    padding: 40px 50px;
+    background: rgba(182, 181, 181, 0.438);
+    border-radius: 20px;
+    position: relative;
+    border: 1px solid rgb(255, 255, 255);
+    backdrop-filter: blur(10px);
+}
+
+/*--- Texto del testimonio ---*/
+.slide p {
+    font-size: 1.2rem;
+    font-style: italic;
+    color: var(--color-texto);
+    margin-bottom: 20px;
+    line-height: 1.7;
+}
+
+/*--- Nombre del autor ---*/
+.slide span {
+    font-weight: bold;
+    color: var(--color-acento);
+    font-size: 0.95rem;
+}
+
+/*--- Comilla decorativa con pseudoelemento ---*/
+.slide::before {
+    content: '"';
+    font-size: 5rem;
+    color: var(--color-acento);
+    opacity: 0.3;
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    line-height: 1;
+}
+
+/*--- Radio buttons ocultos que controlan el carrusel ---*/
+input[name="slider"] { display: none; }
+
+/*--- Posición del slide según radio button seleccionado ---*/
+#item-1:checked ~ .slides { transform: translateX(0%); }
+#item-2:checked ~ .slides { transform: translateX(-100%); }
+#item-3:checked ~ .slides { transform: translateX(-200%); }
+
+/*--- Dots de navegación del carrusel ---*/
+.dots {
+    margin-top: 20px;
+}
+
+/*--- Dot individual ---*/
+.dots label {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--color-acento);
+    margin: 0 5px;
+    cursor: pointer;
+    opacity: 0.3;
+    transition: opacity 0.3s;
+}
+
+/*--- Dot activo según slide visible ---*/
+#item-1:checked ~ .dots label[for="item-1"],
+#item-2:checked ~ .dots label[for="item-2"],
+#item-3:checked ~ .dots label[for="item-3"] {
+    opacity: 1;
+}
+/*--- Responsivo Tablet (768px) ---*/
+@media (max-width: 768px) {
+
+    /*--- Título más chico ---*/
+    .titulo-animado {
+        font-size: 2.5rem;
+    }
+
+    /*--- Subtítulo más chico ---*/
+    .subtitulo-hero {
+        font-size: 1rem;
+        margin-bottom: 40px;
+    }
+
+    /*--- Menos padding en el hero ---*/
+    .hero-container {
+        padding: 80px 15px 30px;
+    }
+
+    /*--- Cards en una sola columna ---*/
+    .destinos-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /*--- Cards menos altas ---*/
+    .card {
+        height: 280px;
+    }
+
+    /*--- Subtítulo de secciones más chico ---*/
+    .subtitulo {
+        font-size: 1.8rem;
+    }
+
+    /*--- Carrusel ocupa todo el ancho ---*/
+    .carrusel-contenedor {
+        max-width: 100%;
+    }
+
+    /*--- Slide con menos padding ---*/
+    .slide {
+        padding: 30px 25px;
+    }
+}
+
+/*--- Responsivo Celular (480px) ---*/
+@media (max-width: 480px) {
+
+    /*--- Título aún más chico ---*/
+    .titulo-animado {
+        font-size: 1.8rem;
+    }
+
+    /*--- Subtítulo hero más chico ---*/
+    .subtitulo-hero {
+        font-size: 0.9rem;
+        margin-bottom: 30px;
+    }
+
+    /*--- Hero con menos padding ---*/
+    .hero-container {
+        padding: 70px 10px 20px;
+    }
+
+    /*--- Cards más chicas ---*/
+    .card {
+        height: 220px;
+    }
+
+    /*--- Contador más chico ---*/
+    .count {
+        font-size: 2rem;
+    }
+
+    /*--- Slide más compacto ---*/
+    .slide {
+        padding: 25px 20px;
+    }
+
+    /*--- Texto del testimonio más chico ---*/
+    .slide p {
+        font-size: 1rem;
+    }
+
+    /*--- Comilla más chica ---*/
+    .slide::before {
+        font-size: 3rem;
+    }
+}
