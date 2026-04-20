@@ -9,17 +9,23 @@
     --color-radio-texto: #ffffff;
     --color-primario: #a0c5ec;
     --fondo-oscuro: rgba(255, 245, 245, 0.26);
+    --color-fondo-filtro:  linear-gradient(135deg, #f8f9fa 0%, #e8edf2 100%);
+    --color-fondo-texto: #c6cfda;
+
 }
 
 /* MODO OSCURO — sobreescribe las variables */
 body.dark-mode {
-    --color-fondo: #121212;
+    --color-fondo: #1d1717f5;
     --color-texto: #f0f0f0;
     --primary-color: #4da6ff;
-    --color-acento: #ff6b4a;
+    --color-acento: #e98770;
     --color-radio-fondo: rgba(32, 117, 187, 0.856);
     --color-radio-texto: #f0f0f0;
     --fondo-oscuro: rgba(27, 26, 26, 0.26);
+    --color-fondo-filtro:  linear-gradient(135deg, #1a1a2e 0%, #16213e 100%)
+    --color-fondo-texto: #2c3e50;
+
 }
 /* 2.RESET DE ESTILOS */
 * {
