@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BlueHorizonTravel-Contacto</title>
     <link rel="stylesheet" href="css/header-footer.css">
     <link rel="stylesheet" href="css/contacto.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
+
 <body>
     <header class="header">
         <div class="logo">BlueHorizon Travel</div>
@@ -29,15 +31,40 @@
                 <li><a href="precio.html">Precios</a></li>
                 <li><a href="blog.html">Blog</a></li>
                 <li>
-                <button id="dark-mode-toggle" class="mod-oscuro">
-                    <i class="fas fa-moon"></i>
-                    <i class="fas fa-sun"></i>
-                </button>
-            </li>
+                    <button id="dark-mode-toggle" class="mod-oscuro">
+                        <i class="fas fa-moon"></i>
+                        <i class="fas fa-sun"></i>
+                    </button>
+                </li>
             </ul>
         </nav>
     </header>
-    <main>  
+    <main>
+        <div class="form-card1">
+            <div class="form-card2">
+                <form class="form">
+                    <p class="form-heading">Contactanos</p>
+
+                    <div class="form-field">
+                        <input required="" placeholder="Nombre" class="input-field" type="text" />
+                    </div>
+
+                    <div class="form-field">
+                        <input required="" placeholder="Email" class="input-field" type="email" />
+                    </div>
+
+                    <div class="form-field">
+                        <input required="" placeholder="Asunto" class="input-field" type="text" />
+                    </div>
+
+                    <div class="form-field">
+                        <textarea required="" placeholder="Mensaje" cols="30" rows="3" class="input-field"></textarea>
+                    </div>
+
+                    <button class="sendMessage-btn">Enviar Mensaje</button>
+                </form>
+            </div>
+        </div>
 
     </main>
     <footer class="footer">
@@ -51,10 +78,10 @@
                     <a href="#"><i class="fab fa-twitter"></i></a>
                 </div>
             </div>
-            
+
             <div class="footer-links">
                 <div class="radiales-wrapper">
-                <!-- Menú radial principal -->
+                    <!-- Menú radial principal -->
                     <div class="radial-nav">
                         <a class="radial-nav-item" href="index.html">Inicio</a>
                         <a class="radial-nav-item" href="agencia.html">Agencias</a>
@@ -75,13 +102,15 @@
                         <div class="radial-btn-main">Destinos</div>
                     </div>
                 </div>
-            </div>  
+            </div>
             <div class="footer-contacto">
                 <h4>Contacto</h4>
                 <p>Email: contacto@viajesunju.com.ar</p>
                 <p>Tel: +54 388 123-4567</p>
                 <div class="mapa-contenedor">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3639.243534571992!2d-65.3039126!3d-24.18074!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x941b0f4435889215%3A0xc6c7661334c9c7f9!2sViracocha%20Restaurante!5e0!3m2!1ses!2sar!4v1713000000000!5m2!1ses!2sar" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3639.243534571992!2d-65.3039126!3d-24.18074!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x941b0f4435889215%3A0xc6c7661334c9c7f9!2sViracocha%20Restaurante!5e0!3m2!1ses!2sar!4v1713000000000!5m2!1ses!2sar"
+                        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                 </div>
             </div>
         </div>
@@ -90,5 +119,6 @@
         </div>
     </footer>
 </body>
-    <script src="js/script.js"></script>
+<script src="js/script.js"></script>
+
 </html>
