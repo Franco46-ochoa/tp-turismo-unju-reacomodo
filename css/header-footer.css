@@ -1,14 +1,14 @@
 /* 1. VARIABLES GLOBALES */
 :root {
     --color-accent: #FF5722;
-    --color-texto: #111111;
+    --color-texto: #000000;
     --color-fondo: #ffffff;
-    --color-acento: #e74c3c;
+    --color-acento: #c78d87;
     --fuente-principal: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     --color-radio-fondo: #2c3e50;   /* azul oscuro, se ve bien en claro y oscuro */
     --color-radio-texto: #ffffff;
     --color-primario: #a0c5ec;
-    --fondo-oscuro: rgba(255, 245, 245, 0.26);
+    --fondo-oscuro: rgba(255, 255, 255, 0.322);
     --color-fondo-filtro:  linear-gradient(135deg, #f8f9fa 0%, #e8edf2 100%);
     --color-fondo-texto: #c6cfda;
 
@@ -19,7 +19,7 @@ body.dark-mode {
     --color-fondo: #1d1717f5;
     --color-texto: #f0f0f0;
     --primary-color: #4da6ff;
-    --color-acento: #e98770;
+    --color-acento: #ca725ecb;
     --color-radio-fondo: rgba(32, 117, 187, 0.856);
     --color-radio-texto: #f0f0f0;
     --fondo-oscuro: rgba(27, 26, 26, 0.26);
@@ -67,7 +67,9 @@ body {
 .nav-menu a {
     color: var(--color-texto);
     text-decoration: none;
-    font-weight: 500;
+    font-stretch: expanded;  /* hace las letras más anchas */
+    letter-spacing: 1px;
+    font-weight: 750;
     transition: 0.3s;
 }
 .nav-menu a:hover {
