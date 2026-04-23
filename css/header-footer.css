@@ -43,13 +43,19 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 50px;
-    z-index: 10; 
+    padding: 8px 20px;
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+    z-index: 10;
 }
 .logo {
-    color: var(--color-texto);
-    font-size: 1.8rem;
+    color: #111;
+    font-size: 1.4rem;
     font-weight: bold;
+}
+.nav-menu a {
+    color: #111;
 }
 .nav-menu ul {
     list-style: none;
