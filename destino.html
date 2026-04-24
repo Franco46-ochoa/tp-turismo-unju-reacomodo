@@ -39,7 +39,149 @@
         </nav>
     </header>
     <main>  
-        
+        <section class="hero-destinos">
+            <video autoplay loop muted playsinline class="video-destinos">
+                <source src="assets/video-fondo.mp4" type="video/mp4">
+            </video>
+        </section>
+
+        <section class="seccion-filtros-blanca">
+            
+            <input type="radio" name="categoria" id="todos" checked>
+            <input type="radio" name="categoria" id="cultural">
+            <input type="radio" name="categoria" id="naturaleza">
+            <input type="radio" name="categoria" id="playa">
+            <input type="radio" name="categoria" id="gastronomico">
+            <input type="radio" name="categoria" id="religioso">
+
+            <div class="botones-contenedor">
+                <label for="todos" class="btn-filtro">Todos</label>
+                <label for="cultural" class="btn-filtro">Cultural</label>
+                <label for="naturaleza" class="btn-filtro">Naturaleza</label>
+                <label for="playa" class="btn-filtro">Sol y Playa</label>
+                <label for="gastronomico" class="btn-filtro">Gastronómico</label>
+                <label for="religioso" class="btn-filtro">Religioso</label>
+            </div>
+
+            <div class="galeria-grid">
+                
+                <article class="card-destino cultural">
+                    <img src="assets/purmamarca.jpg" alt="Purmamarca">
+                    <div class="card-info-destino">
+                        <span>Cultural</span>
+                        <h3>Purmamarca</h3>
+                    </div>
+                </article>
+
+                <article class="card-destino naturaleza">
+                    <img src="assets/bariloche.webp" alt="Bariloche"> 
+                    <div class="card-info-destino">
+                        <span>Naturaleza</span>
+                        <h3>Bariloche</h3>
+                    </div>
+                </article>
+
+                <article class="card-destino religioso">
+                    <img src="assets/humahuaca.jpg" alt="Humahuaca">
+                    <div class="card-info-destino">
+                        <span>Religioso</span>
+                        <h3>Humahuaca</h3>
+                    </div>
+                </article>
+
+                <article class="card-destino gastronomico">
+                    <img src="assets/cafayate.jpg" alt="El Cafayate"> 
+                    <div class="card-info-destino">
+                        <span>Gastronómico</span>
+                        <h3>El Cafayate</h3>
+                    </div>
+                </article>
+
+                <article class="card-destino naturaleza">
+                    <img src="assets/salinas.jpg" alt="Salinas Grandes">
+                    <div class="card-info-destino">
+                        <span>Naturaleza</span>
+                        <h3>Salinas Grandes</h3>
+                    </div>
+                </article>
+
+                <article class="card-destino naturaleza">
+                    <img src="assets/ushuaia.jpg" alt="Ushuaia, Tierra del Fuego">
+                    <div class="card-info-destino">
+                        <span>Naturaleza</span>
+                        <h3>Ushuaia</h3>
+                    </div>
+                </article>
+
+                <article class="card-destino playa">
+                    <img src="assets/mardelplata.jpg" alt="Mar del Plata">
+                    <div class="card-info-destino">
+                        <span>Sol y Playa</span>
+                        <h3>Mar del Plata</h3>
+                    </div>
+                </article>
+                
+            </div>
+
+            <div class="contenedor-tabla-precios">
+                <h2 class="subtitulo-tabla">Tarifas y Paquetes</h2>
+                <table class="tabla-destinos">
+                    <thead>
+                        <tr>
+                            <th>Destino</th>
+                            <th>Categoría</th>
+                            <th>Duración</th>
+                            <th>Precio (ARS)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-label="Destino">Purmamarca</td>
+                            <td data-label="Categoría">Cultural</td>
+                            <td data-label="Duración">3 Días / 2 Noches</td>
+                            <td data-label="Precio (ARS)">$ 150.000</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Destino">Humahuaca</td>
+                            <td data-label="Categoría">Religion</td>
+                            <td data-label="Duración">4 Días / 3 Noches</td>
+                            <td data-label="Precio (ARS)">$ 250.000</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Destino">Salinas Grandes</td>
+                            <td data-label="Categoría">Naturaleza</td>
+                            <td data-label="Duración">3 Días / 2 Noches</td>
+                            <td data-label="Precio (ARS)">$ 275.000</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Destino">Cafayate</td>
+                            <td data-label="Categoría">Gastronómico</td>
+                            <td data-label="Duración">2 Días / 1 Noche</td>
+                            <td data-label="Precio (ARS)">$ 95.000</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Destino">Bariloche</td>
+                            <td data-label="Categoría">Naturaleza</td>
+                            <td data-label="Duración">5 Días / 4 Noches</td>
+                            <td data-label="Precio (ARS)">$ 320.000</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Destino">Mar del Plata</td>
+                            <td data-label="Categoría">Sol y Playa</td>
+                            <td data-label="Duración">7 Días / 6 Noches</td>
+                            <td data-label="Precio (ARS)">$ 250.000</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Destino">Ushuaia</td>
+                            <td data-label="Categoría">Naturaleza</td>
+                            <td data-label="Duración">6 Días / 5 Noches</td>
+                            <td data-label="Precio (ARS)">$ 450.000</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </section>
     </main>
     <footer class="footer">
         <div class="footer-container">
