@@ -1,7 +1,4 @@
-/* ═══════════════════════════════════════════════
-   VARIABLES SCOPEADAS — solo afectan a .agencias
-   No tocan :root ni otros archivos del proyecto
-   ═══════════════════════════════════════════════ */
+
 .agencias {
   /* Paleta BlueHorizon */
   --bh-blue-900:  #001D39;
@@ -10,7 +7,7 @@
   --bh-teal-500:  #4E8EA2;
   --bh-teal-400:  #6EA2B3;
   --bh-blue-300:  #7BBDE8;
-  --bh-blue-100:  #BDD8E9;
+/*  --bh-blue-100:  #BDD8E9;
 
   /* Sombra de cards */
   --bh-card-shadow: rgba(50, 50, 50, 0.25);
@@ -22,43 +19,35 @@
   --bh-grad-overlay: linear-gradient(to bottom, rgba(0,29,57,0.15) 0%, rgba(0,29,57,0.45) 100%);
 }
 
-/* Dark mode: solo reescribe las vars dentro de .agencias */
+/* Dark mode: solo reescribe las vars dentro de .agencias 
 body.dark-mode .agencias {
   --bh-card-shadow: rgba(0, 0, 0, 0.55);
   --bh-blue-900:    #000d1a;
   --bh-blue-700:    #072e55;
 }
+*/
+.hero-destinos {
+    position: relative;
+    height: 12vh;
+    display: flex;
+    background: var(--fondo-oscuro);
+    overflow: hidden; /* ← esto recorta el video */
+    
+  }
 
-/* ═══════════════════════════════════════════════
-   HERO VIDEO
-   ═══════════════════════════════════════════════ */
-.agencias .hero-destinos {
-  width: 100%;
-  height: 120px;
-  min-height: 120px;
-  overflow: hidden;
-  position: relative;
-  display: block;
-  margin-top: 0;
-}
-
-.agencias .video-destinos {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-.agencias .hero-destinos::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: var(--bh-grad-overlay);
-  pointer-events: none;
+.video-destinos {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    transform: translate(-50%, -50%);
+    z-index: -2;
+    object-fit: cover;
 }
 
 /* ═══════════════════════════════════════════════
-   GRID DE CARDS
+  GRID DE CARDS
    ═══════════════════════════════════════════════ */
 .agencias .cards-container {
   display: grid;
@@ -70,7 +59,7 @@ body.dark-mode .agencias {
 }
 
 /* ═══════════════════════════════════════════════
-   CARD — contenedor con perspectiva
+  CARD — contenedor con perspectiva
    ═══════════════════════════════════════════════ */
 .agencias .container {
   width: 100%;
@@ -85,7 +74,7 @@ body.dark-mode .agencias {
   transform-style: preserve-3d;
   border-radius: 1.75rem;
   box-shadow: 0 8px 32px var(--bh-card-shadow);
-  transition: transform 900ms cubic-bezier(0.4, 0.2, 0.2, 1);
+  transition: transform 1500ms cubic-bezier(0.4, 0.2, 0.2, 1);
   cursor: pointer;
 }
 
@@ -94,7 +83,7 @@ body.dark-mode .agencias {
 }
 
 /* ═══════════════════════════════════════════════
-   FRENTE Y REVERSO — base compartida
+  FRENTE Y REVERSO — base compartida
    ═══════════════════════════════════════════════ */
 .agencias .front,
 .agencias .back {
@@ -115,7 +104,7 @@ body.dark-mode .agencias {
 }
 
 /* ═══════════════════════════════════════════════
-   FRENTE
+  FRENTE
    ═══════════════════════════════════════════════ */
 .agencias .front {
   background: var(--bh-grad-front);
@@ -305,7 +294,7 @@ body.dark-mode .agencias {
 }
 
 /* ═══════════════════════════════════════════════
-   ESTRELLAS ANIMADAS
+  ESTRELLAS ANIMADAS
    ═══════════════════════════════════════════════ */
 .agencias .stars-wrapper {
   position: relative;
@@ -335,17 +324,4 @@ body.dark-mode .agencias {
 @keyframes bh-fillStars {
   from { width: 0%; }
   to   { width: var(--stars-width); }
-}
-
-/* ═══════════════════════════════════════════════
-   RESPONSIVE
-   ═══════════════════════════════════════════════ */
-@media (max-width: 640px) {
-  .agencias .container    { height: 460px; }
-  .agencias .hero-destinos { height: 40vh; min-height: 220px; }
-  .agencias .cards-container {
-    padding: 2rem 1rem;
-    gap: 1.5rem;
-    grid-template-columns: 1fr;
-  }
 }
