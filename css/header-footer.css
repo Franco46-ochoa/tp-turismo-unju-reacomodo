@@ -1,13 +1,22 @@
 /* 1. VARIABLES GLOBALES */
 :root {
+    /* Paleta BlueHorizon */
+    --bh-blue-900:  #001D39;
+    --bh-blue-700:  #0A4174;
+    --bh-blue-500:  #49769F;
+    --bh-teal-500:  #4E8EA2;
+    --bh-teal-400:  #6EA2B3;
+    --bh-blue-300:  #7BBDE8;
+    --bh-blue-100:  #BDD8E9;
+    
     --color-accent: #FF5722;
     --color-texto: #111111;
     --color-fondo: #ffffff;
     --color-acento: #e74c3c;
     --fuente-principal: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    --color-radio-fondo: #2c3e50;   /* azul oscuro, se ve bien en claro y oscuro */
+    --color-radio-fondo: var(--bh-blue-700);
     --color-radio-texto: #ffffff;
-    --color-primario: #a0c5ec;
+    --color-primario: var(--bh-blue-100);
     --fondo-oscuro: rgba(255, 245, 245, 0.26);
 }
 
@@ -15,9 +24,9 @@
 body.dark-mode {
     --color-fondo: #121212;
     --color-texto: #f0f0f0;
-    --primary-color: #4da6ff;
-    --color-acento: #ff6b4a;
-    --color-radio-fondo: rgba(32, 117, 187, 0.856);
+    --primary-color: var(--bh-blue-300);
+    --color-acento: var(--bh-blue-300);
+    --color-radio-fondo: rgba(10, 65, 116, 0.9);
     --color-radio-texto: #f0f0f0;
     --fondo-oscuro: rgba(27, 26, 26, 0.26);
 }
@@ -49,13 +58,28 @@ body {
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
     z-index: 10;
 }
+
+body.dark-mode .header {
+    background: rgba(18, 18, 18, 0.92);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.5);
+}
+
 .logo {
     color: #111;
     font-size: 1.4rem;
     font-weight: bold;
 }
+
+body.dark-mode .logo {
+    color: #f0f0f0;
+}
+
 .nav-menu a {
     color: #111;
+}
+
+body.dark-mode .nav-menu a {
+    color: #f0f0f0;
 }
 .nav-menu ul {
     list-style: none;
