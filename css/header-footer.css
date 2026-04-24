@@ -9,8 +9,10 @@
     --color-radio-texto: #ffffff;
     --color-primario: #a0c5ec;
     --fondo-oscuro: rgba(255, 245, 245, 0.26);
-    --colorFondoFormulario: #67df81;
-    --color-texto-form: #000c0aea;
+    --colorFondoFormulario:#6ea2b3;
+    --colorfondotexto-form: #bdd8e9 ;
+    --color-texto-form: #001d39;
+    --color-envio-form: #4e8ea2;
     
 
 }
@@ -24,8 +26,10 @@ body.dark-mode {
     --color-radio-fondo: rgba(29, 164, 226, 0.856);
     --color-radio-texto: #f0f0f0;
     --fondo-oscuro: rgba(27, 26, 26, 0.26);
-    --colorFondoFormulario: #38E5B7;
-    --color-texto-form: #4919aa;
+    --colorFondoFormulario:#001d39;
+    --colorfondotexto-form: #49769f ;
+    --color-texto-form: #bdd8e9;
+    --color-envio-form: #0a4174;
 }
 /* 2.RESET DE ESTILOS */
 * {
