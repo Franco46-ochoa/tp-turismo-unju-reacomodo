@@ -5,21 +5,28 @@
     --color-fondo: #ffffff;
     --color-acento: #c78d87;
     --fuente-principal: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    --color-radio-fondo: #2c3e50;   /* azul oscuro, se ve bien en claro y oscuro */
+    --color-radio-fondo: #2c3e50;
     --color-radio-texto: #ffffff;
     --color-primario: #a0c5ec;
     --fondo-oscuro: rgba(255, 245, 245, 0.26);
     --colorFondoFormulario:#6ea2b3;
-    --colorfondotexto-form: #bdd8e9 ;
+    --colorfondotexto-form: #bdd8e9;
     --color-texto-form: #001d39;
     --color-envio-form: #4e8ea2;
     
-
+    /* Paleta de colores para precios */
+    --precio-blue-900: #001D39;
+    --precio-blue-800: #0A4174;
+    --precio-blue-700: #49769F;
+    --precio-blue-600: #4E8EA2;
+    --precio-blue-500: #6EA2B3;
+    --precio-blue-400: #7BBDE8;
+    --precio-blue-200: #BDD8E9;
 }
 
 /* MODO OSCURO — sobreescribe las variables */
 body.dark-mode {
-    --color-fondo: #1d1717f5;
+    --color-fondo: #0f1419;
     --color-texto: #f0f0f0;
     --primary-color: #4da6ff;
     --color-acento: #ca725ecb;
@@ -27,9 +34,18 @@ body.dark-mode {
     --color-radio-texto: #f0f0f0;
     --fondo-oscuro: rgba(27, 26, 26, 0.26);
     --colorFondoFormulario:#001d39;
-    --colorfondotexto-form: #49769f ;
+    --colorfondotexto-form: #49769f;
     --color-texto-form: #bdd8e9;
     --color-envio-form: #0a4174;
+    
+    /* Paleta de colores para precios en dark-mode */
+    --precio-blue-900: #7BBDE8;
+    --precio-blue-800: #6EA2B3;
+    --precio-blue-700: #4E8EA2;
+    --precio-blue-600: #49769F;
+    --precio-blue-500: #0A4174;
+    --precio-blue-400: #001D39;
+    --precio-blue-200: #49769F;
 }
 /* 2.RESET DE ESTILOS */
 * {
@@ -84,6 +100,12 @@ body {
     border: none;
     color: var(--color-texto);
     cursor: pointer;
+    font-size: 1.5rem;
+    transition: color 0.3s;
+}
+
+.mod-oscuro:hover {
+    color: var(--color-acento);
 }
 /*Boton oscuro*/
 .mod-oscuro .fa-sun {

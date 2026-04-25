@@ -1,0 +1,175 @@
+.hero-destinos {
+    position: relative;
+    height: 12vh;
+    display: flex;
+    background: var(--fondo-oscuro);
+    overflow: hidden; /* ← esto recorta el video */
+}
+
+.video-destinos {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    transform: translate(-50%, -50%);
+    z-index: -2;
+    object-fit: cover;
+}
+
+
+/* 2. Estilos Generales de la Sección */
+.precios-container {
+    padding: 100px 5%;
+    background-color: var(--bg-light);
+    min-height: 80vh;
+}
+
+.comparador h2 {
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: var(--primary-color);
+}
+
+/* 3. Tabla Responsiva (Requisito 2.4 y 5.1) */
+.table-responsive {
+    overflow-x: auto; /* Permite scroll horizontal en móviles */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    border-radius: 15px;
+}
+
+.tabla-precios {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--white);
+}
+
+.tabla-precios th, 
+.tabla-precios td {
+    padding: 20px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.tabla-precios thead {
+    background-color: var(--precio-blue-900);
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.tabla-precios tbody tr {
+    background-color: #ffffff;
+    color: #333333;
+}
+
+/* Efecto de resaltado al pasar el cursor (Requisito 5.1) */
+.tabla-precios tbody tr:hover {
+    background-color: var(--precio-blue-200);
+    transform: scale(1.01);
+    transition: var(--transition);
+}
+
+.tabla-precios tbody tr {
+    border-left: 4px solid var(--precio-blue-400);
+}
+
+/* 4. Tooltips con CSS Puro (Requisito 5.2) */
+.tooltip {
+    position: relative;
+    cursor: pointer;
+    margin-left: 5px;
+    color: var(--primary-color);
+}
+
+.tooltip::after {
+    content: attr(data-tooltip); /* Toma el texto del atributo HTML */
+    position: absolute;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%) scale(0);
+    background: var(--text-dark);
+    color: var(--white);
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    white-space: nowrap;
+    transition: var(--transition);
+    opacity: 0;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.tooltip:hover::after {
+    transform: translateX(-50%) scale(1);
+    opacity: 1;
+}
+
+/* 5. Botón de Reserva con Efecto Especial */
+.button {
+    padding: 10px 20px;
+    font-size: 1.1rem;
+    background-color: var(--precio-blue-900);
+    border: none;
+    color: white;
+    position: relative;
+    width: 120px;
+    height: 45px;
+    transition: background-color 0.2s ease-in, all 0.15s ease-in;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.button::after {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    content: "Reserva";
+    width: 120px;
+    height: 45px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translate(5px, 5px);
+    background-color: white;
+    color: var(--precio-blue-900);
+    border: 2px solid var(--precio-blue-900);
+    transition: all 0.15s ease-in;
+    border-radius: 5px;
+}
+
+.button:hover::after {
+    transform: translate(-8px, -9px);
+}
+
+.button:hover {
+    transform: translate(5px, 5px);
+    background-color: var(--precio-blue-800);
+}
+
+.button:active::after {
+    background-color: #f0f0f0;
+}
+
+/* 6. Diseño Responsivo (Requisito 34/44) */
+@media (max-width: 768px) {
+    .tabla-precios thead {
+        display: none; /* Ocultamos cabecera en móviles muy pequeños */
+    }
+    
+    .tabla-precios td {
+        display: block;
+        text-align: right;
+        position: relative;
+        padding-left: 50%;
+    }
+
+    .tabla-precios td::before {
+        content: attr(data-label); /* Necesitarías agregar data-label al HTML para este efecto */
+        position: absolute;
+        left: 20px;
+        font-weight: bold;
+        text-align: left;
+    }
+}
