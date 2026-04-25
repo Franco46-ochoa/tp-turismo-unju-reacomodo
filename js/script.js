@@ -1,65 +1,23 @@
-$(document).ready(function() {
+const toggle = document.getElementById('dark-mode-toggle');
 
-  // ── FLIP DE CARDS ─────────────────────────────
-  // Al hacer clic en cualquier .card, toggle de clase .flipped
-    $('.card').on('click', function() {
-    $(this).toggleClass('flipped');
-});
-
-  // ── RATING CON ESTRELLAS ───────────────────────
-  // Al pasar el mouse, ilumina las estrellas hasta esa posición
-  $('.rating i').on('mouseover', function() {
-    const rating = $(this).data('rating');
-    $(this).closest('.rating').find('i').each(function() {
-            if ($(this).data('rating') <= rating) {
-                $(this).removeClass('far').addClass('fas hovered');
-            } else {
-                $(this).removeClass('fas hovered').addClass('far');
-            }
+if (toggle) {
+    toggle.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
     });
-});
+}
 
-  // Al sacar el mouse, vuelve al rating guardado
-    $('.rating').on('mouseleave', function() {
-    const saved = $(this).data('saved') || 0;
-    $(this).find('i').each(function() {
-        if ($(this).data('rating') <= saved) {
-        $(this).removeClass('far hovered').addClass('fas');
-        } else {
-        $(this).removeClass('fas hovered').addClass('far');
+// Filtro por hash (#cultural, #naturaleza, etc.)
+function activarFiltroPorHash() {
+    const hash = window.location.hash.replace('#', '');
+    const categorias = ['todos', 'cultural', 'naturaleza', 'playa', 'gastronomico', 'religioso'];
+    
+    if (hash && categorias.includes(hash)) {
+        const input = document.getElementById(hash);
+        if (input) {
+            input.checked = true;
         }
-    });
-});
-
-  // Al hacer clic, guarda el rating elegido
-    $('.rating i').on('click', function(e) {
-        e.stopPropagation(); // evita que se active el flip al mismo tiempo
-        const rating = $(this).data('rating');
-        const $ratingContainer = $(this).closest('.rating');
-        $ratingContainer.data('saved', rating);
-        $ratingContainer.find('i').each(function() {
-            if ($(this).data('rating') <= rating) {
-                $(this).removeClass('far').addClass('fas');
-            } else {
-            $(this).removeClass('fas').addClass('far');
-        }
-    });
-});
-
-  // ── DARK MODE ──────────────────────────────────
-    $('#dark-mode-toggle').on('click', function() {
-        $('body').toggleClass('dark-mode');
-    // Guarda la preferencia
-    if ($('body').hasClass('dark-mode')) {
-        localStorage.setItem('theme', 'dark');
-    } else {
-        localStorage.setItem('theme', 'light');
     }
-});
+}
 
-  // Carga la preferencia guardada al iniciar
-    if (localStorage.getItem('theme') === 'dark') {
-        $('body').addClass('dark-mode');
-    }
-
-});
+window.addEventListener('DOMContentLoaded', activarFiltroPorHash);
+window.addEventListener('hashchange', activarFiltroPorHash);
