@@ -1,0 +1,23 @@
+{
+  "name": "tp-turismo-unju-reacomodo",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/Franco46-ochoa/tp-turismo-unju-reacomodo#readme",
+  "bugs": {
+    "url": "https://github.com/Franco46-ochoa/tp-turismo-unju-reacomodo/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Franco46-ochoa/tp-turismo-unju-reacomodo.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "bootstrap": "^5.3.8"
+  }
+}
