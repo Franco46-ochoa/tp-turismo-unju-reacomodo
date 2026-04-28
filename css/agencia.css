@@ -1,0 +1,536 @@
+/* ═══════════════════════════════════════
+   VARIABLES DE COLOR — HEADER
+═══════════════════════════════════════ */
+
+:root {
+    --body-bg: #bdd8ed; /* Color de fondo para modo claro */
+    --header-texto: #000000;/* Color del texto del navbar */
+    --header-hover: #ce655a;/* Color hover de los links */
+    --header-overlay: #ffffff6e;/* Sombra sobre el video — modo claro (oscura) */
+    --footer-fondo: #7BBDE8;        /* celeste medio */
+    --footer-texto: #001D39;        /* azul muy oscuro */
+    --footer-hover: #4E8EA2;        /* teal */
+    --footer-input-fondo: #BDD8E9;  /* celeste claro */
+    --footer-input-texto: #001D39;  /* azul muy oscuro */
+    --footer-btn: #49769F;          /* azul medio */
+    --footer-sombra: 0 -4px 16px rgba(36, 153, 255, 0.979);
+    --card-sombra: rgba(50, 50, 50, 0.25);              /* sombra de la card */
+    --card-grad-frente: linear-gradient(160deg, #0A4174 0%, #001D39 100%);   /* gradiente del frente */
+    --card-grad-reverso: linear-gradient(145deg, #4E8EA2 0%, #49769F 60%, #0A4174 100%); /* gradiente del reverso */
+    --card-grad-divider: linear-gradient(90deg, #7BBDE8, #6EA2B3);          /* línea divisora */
+    --card-badge-fondo: rgba(123, 189, 232, 0.18);      /* fondo del badge especialidad */
+    --card-badge-borde: rgba(123, 189, 232, 0.35);      /* borde del badge especialidad */
+    --card-hint-color: #7BBDE8;                         /* color del texto "Ver más info" */
+    --card-lista-borde: rgba(189, 216, 233, 0.55);      /* borde izquierdo de cada item de la lista */
+    --card-lista-fondo: rgba(255, 255, 255, 0.14);      /* fondo de cada item de la lista */
+    --card-btn-fondo: #ffffff;                          /* fondo del botón contactar */
+    --card-btn-texto: #0A4174;                          /* texto del botón contactar */
+
+}
+
+body.dark-mode {
+    --body-bg: #001d39; /* Color de fondo para modo oscuro (un gris muy oscuro o negro) */
+    --header-texto: #ffffff;/* Color del texto del navbar */
+    --header-hover: #c78d87;/* Color hover de los links */
+    --header-overlay: #0e0d0d42;/* Sombra sobre el video — modo oscuro (clara) */
+    --footer-fondo: #0a4174;        /* azul muy oscuro */
+    --footer-texto: #BDD8E9;        /* celeste claro */
+    --footer-hover: #7BBDE8;        /* celeste medio */
+    --footer-input-fondo: #0A4174;  /* azul oscuro */
+    --footer-input-texto: #BDD8E9;  /* celeste claro */
+    --footer-btn: #4E8EA2;          /* teal */
+    --footer-sombra: 0 -4px 16px rgba(189, 216, 233, 0.1);
+    --card-sombra: rgba(0, 0, 0, 0.55);                 /* sombra más intensa en oscuro */
+    --card-grad-frente: linear-gradient(160deg, #001D39 0%, #000d1a 100%);   /* frente más oscuro */
+    --card-grad-reverso: linear-gradient(145deg, #0A4174 0%, #001D39 60%, #000d1a 100%); /* reverso más oscuro */
+    --card-grad-divider: linear-gradient(90deg, #4E8EA2, #49769F);          /* línea más apagada */
+    --card-badge-fondo: rgba(78, 142, 162, 0.18);       /* badge más oscuro */
+    --card-badge-borde: rgba(78, 142, 162, 0.35);       /* borde badge más oscuro */
+    --card-hint-color: #4E8EA2;                         /* hint más apagado */
+    --card-lista-borde: rgba(78, 142, 162, 0.55);       /* borde lista más oscuro */
+    --card-lista-fondo: rgba(0, 0, 0, 0.2);             /* fondo lista oscuro */
+    --card-btn-fondo: #0A4174;                          /* botón azul oscuro */
+    --card-btn-texto: #BDD8E9;                          /* texto celeste claro */
+
+}
+
+/* Nombre de la marca */
+.navbar-brand {
+    color: var(--header-texto);
+    font-size: 1.8rem;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.navbar-brand:hover {
+    color: var(--header-hover);
+}
+
+/* Links del menú */
+.nav-link {
+    color: var(--header-texto) !important;
+    font-weight: 700;
+    letter-spacing: 1px;
+    transition: color 0.3s;
+}
+
+.nav-link:hover {
+    color: var(--header-hover) !important;
+}
+
+/* Botón modo oscuro */
+.mod-oscuro {
+    color: var(--header-texto);
+    font-size: 1.5rem;
+    transition: color 0.3s;
+}
+
+.mod-oscuro:hover {
+    color: var(--header-hover);
+}
+
+/* La sombra se crea con ::after encima del video */
+.video-header::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--header-overlay);
+    z-index: 0;
+    pointer-events: none;
+    transition: background 0.4s ease;
+}
+
+/* El navbar queda encima de la sombra */
+.video-header .navbar {
+    position: relative;
+    z-index: 1;
+}
+
+/* Modo claro: muestra luna, oculta sol */
+.mod-oscuro .fa-sun {
+    display: none;
+}
+
+/* Modo oscuro: muestra sol, oculta luna */
+body.dark-mode .mod-oscuro .fa-moon {
+    display: none;
+}
+
+body.dark-mode .mod-oscuro .fa-sun {
+    display: inline;
+}
+
+@media (max-width: 991px) {
+
+    /* Fondo del menú al desplegarse */
+    .navbar-collapse {
+        padding: 10px 20px;
+        border-radius: 0 0 8px 8px;
+        transition: background 0.4s ease;
+    }
+
+    /* Sombra debajo del menú desplegado */
+    .navbar-collapse {
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    }
+
+    body.dark-mode .navbar-collapse {
+        box-shadow: 0 8px 16px rgba(255, 255, 255, 0.05);
+    }
+
+}
+
+.footer {
+    background-color: var(--footer-fondo);
+    color: var(--footer-texto);
+    box-shadow: var(--footer-sombra);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Títulos */
+.footer h3,
+.footer h4 {
+    color: var(--footer-texto);
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
+/* Texto general */
+.footer p {
+    color: var(--footer-texto);
+}
+.redes-sociales {
+    display: flex;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.redes-sociales a {
+    color: var(--footer-texto);
+    font-size: 1.5rem;
+    transition: color 0.3s;
+}
+
+.redes-sociales a:hover {
+    color: var(--footer-hover);
+}
+
+.footer-form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+/* Inputs */
+.footer-form input {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    outline: none;
+    background: var(--footer-input-fondo);
+    color: var(--footer-input-texto);
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Placeholder */
+.footer-form input::placeholder {
+    color: var(--footer-input-texto);
+    opacity: 0.7;
+}
+
+/* Botón */
+.footer-form button {
+    padding: 9px;
+    border: none;
+    border-radius: 4px;
+    background-color: var(--footer-btn);
+    color: var(--footer-input-fondo);
+    font-weight: bold;
+    cursor: pointer;
+    transition: filter 0.3s, background 0.3s;
+}
+
+.footer-form button:hover {
+    filter: brightness(1.15);
+}
+
+.mapa-contenedor {
+    height: 150px;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-top: 10px;
+    box-shadow: 0 4px 12px rgba(0, 29, 57, 0.2);
+    transition: box-shadow 0.3s ease;
+}
+
+body.dark-mode .mapa-contenedor {
+    box-shadow: 0 4px 12px rgba(189, 216, 233, 0.1);
+}
+
+.footer-bottom {
+    margin-top: 10px;
+    padding: 10px 20px;
+    border-top: 1px solid rgba(0, 29, 57, 0.15);
+    text-align: center;
+    color: var(--footer-texto);
+    transition: border-color 0.3s ease;
+}
+
+body.dark-mode .footer-bottom {
+    border-top: 1px solid rgba(189, 216, 233, 0.15);
+}
+body {
+    background-color: var(--body-bg);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    margin: 0;
+    font-family: sans-serif;
+}
+/* ═══════════════════════════════════════
+   CARDS — CONTENEDOR CON PERSPECTIVA
+═══════════════════════════════════════ */
+
+/* Alto fijo para que el flip funcione */
+.card-wrapper {
+    width: 100%;
+    height: 500px;
+    perspective: 1000px; /* crea el efecto 3D */
+}
+
+/* La card que gira */
+.agencia-card {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    transform-style: preserve-3d; /* mantiene el 3D en los hijos */
+    border-radius: 1.75rem;
+    box-shadow: 0 8px 32px var(--card-sombra);
+    transition: transform 1500ms cubic-bezier(0.4, 0.2, 0.2, 1);
+    cursor: pointer;
+}
+
+/* Giro al hacer hover */
+.card-wrapper:hover .agencia-card {
+    transform: rotateY(180deg) rotateZ(180deg);
+}
+
+/* ═══════════════════════════════════════
+   FRENTE Y REVERSO — base compartida
+═══════════════════════════════════════ */
+
+.front,
+.back {
+    height: 100%;
+    width: 100%;
+    border-radius: 1.75rem;
+    position: absolute;
+    inset: 0;
+    backface-visibility: hidden;         /* oculta la cara de atrás */
+    -webkit-backface-visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    overflow: hidden;
+    color: #fff;
+}
+
+/* ═══════════════════════════════════════
+   FRENTE
+═══════════════════════════════════════ */
+
+.front {
+    background: var(--card-grad-frente);
+    padding: 0 0 1.25rem;
+}
+
+/* Imagen superior */
+.card-img {
+    width: 100%;
+    height: 195px;
+    object-fit: cover;
+    border-radius: 1.75rem 1.75rem 0 0; /* solo esquinas de arriba */
+    flex-shrink: 0;
+}
+
+/* Contenedor del texto del frente */
+.front-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 1rem 1.5rem 0;
+    width: 100%;
+    flex: 1;
+}
+
+/* Nombre de la agencia */
+.front-heading {
+    font-size: 1.35rem;
+    font-weight: 700;
+    margin: 0;
+    text-align: center;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.35);
+    letter-spacing: 0.02em;
+}
+
+/* Descripción */
+.front-desc {
+    font-size: 0.875rem;
+    text-align: center;
+    opacity: 0.88;
+    line-height: 1.55;
+    margin: 0;
+}
+
+/* Línea decorativa divisora */
+.card-divider {
+    width: 48px;
+    height: 2px;
+    background: var(--card-grad-divider);
+    border-radius: 2px;
+    opacity: 0.7;
+}
+
+/* Badge de especialidad */
+.card-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 4px 12px;
+    background: var(--card-badge-fondo);
+    border: 1px solid var(--card-badge-borde);
+    border-radius: 999px;
+    font-size: 0.72rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+/* Texto "Ver más info" con ícono girando */
+.flip-hint {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--card-hint-color);
+    margin-top: auto;
+    padding-bottom: 0.25rem;
+    animation: bh-blink 2.5s ease-in-out infinite; /* parpadeo */
+}
+
+/* Ícono que gira */
+.flip-hint svg {
+    width: 14px;
+    height: 14px;
+    fill: currentColor;
+    animation: bh-spin 3s linear infinite; /* giro continuo */
+}
+
+/* ═══════════════════════════════════════
+   REVERSO
+═══════════════════════════════════════ */
+
+.back {
+    background: var(--card-grad-reverso);
+    transform: rotateY(180deg) rotateZ(-180deg); /* ya girado para el flip */
+    padding: 1.75rem 1.75rem 1.5rem;
+    justify-content: center;
+}
+
+/* Círculo decorativo arriba derecha */
+.back::before {
+    content: "";
+    position: absolute;
+    top: -60px;
+    right: -60px;
+    width: 200px;
+    height: 200px;
+    background: rgba(189, 216, 233, 0.12);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+/* Círculo decorativo abajo izquierda */
+.back::after {
+    content: "";
+    position: absolute;
+    bottom: -40px;
+    left: -40px;
+    width: 160px;
+    height: 160px;
+    background: rgba(0, 29, 57, 0.2);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+/* Nombre en el reverso */
+.back-heading {
+    font-size: 1.45rem;
+    font-weight: 700;
+    margin: 0 0 1rem;
+    text-align: center;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    letter-spacing: 0.03em;
+}
+
+/* Lista de info */
+.card-back-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+}
+
+/* Cada item de la lista */
+.card-back-list li {
+    font-size: 0.875rem;
+    padding: 8px 14px;
+    background: var(--card-lista-fondo);
+    border-left: 3px solid var(--card-lista-borde);
+    border-radius: 0 10px 10px 0;
+    backdrop-filter: blur(4px); /* efecto vidrio */
+}
+
+/* Botón contactar */
+.btn-card {
+    margin-top: 10px;
+    padding: 11px 32px;
+    background: var(--card-btn-fondo);
+    color: var(--card-btn-texto);
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 0.875rem;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    position: relative;
+    z-index: 1;
+    transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+}
+
+.btn-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+    filter: brightness(1.1);
+}
+
+/* ═══════════════════════════════════════
+   ESTRELLAS ANIMADAS
+═══════════════════════════════════════ */
+
+.stars-wrapper {
+    position: relative;
+    display: inline-block;
+    font-size: 1.35rem;
+    letter-spacing: 3px;
+}
+
+/* Estrellas vacías de fondo */
+.stars-empty {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+/* Estrellas doradas que se llenan animadas */
+.stars-filled {
+    position: absolute;
+    top: 0;
+    left: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    color: #FFD700;
+    width: 0%;
+    animation: bh-fillStars 1.4s ease-out forwards;
+    animation-delay: 0.3s;
+    text-shadow: 0 0 8px rgba(255, 215, 0, 0.5);
+}
+
+/* ═══════════════════════════════════════
+   ANIMACIONES
+═══════════════════════════════════════ */
+
+/* Parpadeo del hint */
+@keyframes bh-blink {
+    0%, 100% { opacity: 0.35; }
+    50%       { opacity: 0.85; }
+}
+
+/* Giro del ícono */
+@keyframes bh-spin {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+}
+
+/* Llenado de estrellas */
+@keyframes bh-fillStars {
+    from { width: 0%; }
+    to   { width: var(--stars-width); }
+}

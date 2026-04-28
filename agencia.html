@@ -1,329 +1,503 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>BlueHorizonTravel-Destino</title>
-    <link rel="stylesheet" href="css/index.css"> 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">    
-    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="node_modules/bootstrap/dist/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="css/agencia.css" />
   </head>
-<body>
-    <header class="header">
-        <div class="logo">BlueHorizon Travel</div>
-        <nav class="nav-menu">
-            <ul>
-                <li><a href="index.html">Inicio</a></li>
-                <li class="dropdown">
-                    <a href="destino.html" aria-haspopup="true">Destinos <i class="fas fa-chevron-down"></i></a>
-                    <ul class="submenu">
-                        <li><a href="destino.html#cultural">Cultural</a></li>
-                        <li><a href="destino.html#naturaleza">Naturaleza</a></li>
-                        <li><a href="destino.html#playa">Sol y Playa</a></li>
-                        <li><a href="destino.html#gastronomico">Gastronómico</a></li>
-                        <li><a href="destino.html#religioso">Religioso</a></li>
-                    </ul>
-                </li>
-                <li><a href="agencia.html">Agencias</a></li>
-                <li><a href="contacto.html">Contacto</a></li>
-                <li><a href="precio.html">Precios</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li>
-                <button id="dark-mode-toggle" class="mod-oscuro">
-                    <i class="fas fa-moon"></i>
-                    <i class="fas fa-sun"></i>
+  <body>
+    <header
+      class="position-relative overflow-hidden video-header"
+      style="height: auto; min-height: 70px"
+    >
+      <!-- 1. El Video de Fondo -->
+      <video
+        class="position-absolute top-0 start-0 w-100 h-100"
+        src="assets/video-fondo.mp4"
+        autoplay
+        muted
+        loop
+        style="z-index: -1; object-fit: cover"
+      ></video>
+      <!-- 2. Contenedor de Contenido (Nav) -->
+      <nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
+        <div class="container-fluid px-4 flex-wrap">
+          <!-- Fila superior móvil: nombre + hamburguesa -->
+          <div
+            class="d-flex justify-content-between align-items-center w-100 d-lg-none py-2"
+          >
+            <a class="navbar-brand fw-bold mb-0" href="index.html"
+              >BlueHorizon Travel</a
+            >
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#menuDestino"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          </div>
+          <!-- Nombre en PC -->
+          <a class="navbar-brand fw-bold d-none d-lg-block" href="index.html"
+            >BlueHorizon Travel</a
+          >
+          <!-- Menú colapsable -->
+          <div class="collapse navbar-collapse" id="menuDestino">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link" href="index.html">Inicio</a>
+              </li>
+              <!-- Destinos con submenú Bootstrap dropdown -->
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="destino.html"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Destinos
+                </a>
+                <ul class="dropdown-menu dropdown-menu-dark">
+                  <li>
+                    <a class="dropdown-item" href="destino.html#cultural"
+                      >Cultural</a
+                    >
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="destino.html#naturaleza"
+                      >Naturaleza</a
+                    >
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="destino.html#playa"
+                      >Sol y Playa</a
+                    >
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="destino.html#gastronomico"
+                      >Gastronómico</a
+                    >
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="destino.html#religioso"
+                      >Religioso</a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="agencia.html">Agencias</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="contacto.html">Contacto</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="precio.html">Precios</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="blog.html">Blog</a>
+              </li>
+              <li class="nav-item">
+                <button id="dark-mode-toggle" class="mod-oscuro nav-link btn">
+                  <i class="fas fa-moon"></i>
+                  <i class="fas fa-sun"></i>
                 </button>
-            </li>
+              </li>
             </ul>
-        </nav>
+          </div>
+        </div>
+      </nav>
     </header>
     <main>
-              <!-- ── HERO VIDEO ── -->
-        <section class="hero-destinos">
-            <video autoplay loop muted playsinline class="video-destinos">
-                <source src="assets/video-fondo.mp4" type="video/mp4">
-            </video>
-        </section>
-        <div class="agencias"> 
-          <div class="cards-container"> 
-          <div class="container">
-            <div class="card">
-
-              <!-- CARD 1 -->
-              <!-- FRENTE -->
-              <div class="front">
-                <img class="card-img" 
-                      src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80" 
-                      alt="Agencia Norte"/>
-                <div class="front-body">
-                  <p class="front-heading">Agencia Norte</p>
-                  <div class="card-divider"></div>
-                  <span class="card-badge">🏔️ Aventura & Naturaleza</span>
-                  <p class="front-desc">Especialistas en turismo de aventura y naturaleza en el noroeste argentino.</p>
-                  <div class="stars-wrapper" aria-label="4.5 estrellas de 5">
-                    <div class="stars-empty">☆☆☆☆☆</div>
-                    <div class="stars-filled" style="--stars-width: 90%">★★★★★</div>
+      <div class="agencias py-5">
+        <div class="container-fluid px-4">
+          <div class="row g-4">
+            <!-- CARD 1 -->
+            <div class="col-12 col-md-6 col-lg-4">
+              <div class="card-wrapper">
+                <div class="agencia-card">
+                  <!-- FRENTE -->
+                  <div class="front">
+                    <img
+                      class="card-img"
+                      src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80"
+                      alt="Agencia Norte"
+                    />
+                    <div class="front-body">
+                      <p class="front-heading">Agencia Norte</p>
+                      <div class="card-divider"></div>
+                      <span class="card-badge">🏔️ Aventura & Naturaleza</span>
+                      <p class="front-desc">
+                        Especialistas en turismo de aventura y naturaleza en el
+                        noroeste argentino.
+                      </p>
+                      <div
+                        class="stars-wrapper"
+                        aria-label="4.5 estrellas de 5"
+                      >
+                        <div class="stars-empty">☆☆☆☆☆</div>
+                        <div class="stars-filled" style="--stars-width: 90%">
+                          ★★★★★
+                        </div>
+                      </div>
+                      <div class="flip-hint">
+                        <svg
+                          viewBox="0 0 24 24"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M12 4V1L8 5l4 4V6c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8z"
+                          />
+                        </svg>
+                        Ver más info
+                      </div>
+                    </div>
                   </div>
-                  <div class="flip-hint">
-                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 4V1L8 5l4 4V6c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8z"/></svg>
-                    Ver más info
+
+                  <!-- REVERSO -->
+                  <div class="back">
+                    <p class="back-heading">Agencia Norte</p>
+                    <ul class="card-back-list">
+                      <li>📍 San Salvador de Jujuy</li>
+                      <li>📞 +54 388 400-0000</li>
+                      <li>✉ info@agencianorte.com</li>
+                      <li>🌐 Más de 10 años de experiencia</li>
+                      <li>🧭 Guías bilingües certificados</li>
+                    </ul>
+                    <a href="contacto.html" class="btn-card">Contactar</a>
                   </div>
                 </div>
               </div>
-
-              <!-- REVERSO -->
-              <div class="back">
-                <p class="back-heading">Agencia Norte</p>
-                <ul class="card-back-list">
-                  <li>📍 San Salvador de Jujuy</li>
-                  <li>📞 +54 388 400-0000</li>
-                  <li>✉ info@agencianorte.com</li>
-                  <li>🌐 Más de 10 años de experiencia</li>
-                  <li>🧭 Guías bilingües certificados</li>
-                </ul>
-                <a href="contacto.html" class="btn-card">Contactar</a>
-              </div>
-
             </div>
-          </div>
 
-          <!-- CARD 2 -->
-          <div class="container">
-            <div class="card">
-              <div class="front">
-                <img class="card-img" 
-                      src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=600&q=80" 
-                      alt="Puna Viajes"/>
-                <div class="front-body">
-                  <p class="front-heading">Puna Viajes</p>
-                  <div class="card-divider"></div>
-                  <span class="card-badge">🌄 Puna & Quebrada</span>
-                  <p class="front-desc">Descubrí la magia de la Puna y la Quebrada con guías expertos locales.</p>
-                  <div class="stars-wrapper" aria-label="5 estrellas de 5">
-                    <div class="stars-empty">☆☆☆☆☆</div>
-                    <div class="stars-filled" style="--stars-width: 100%">★★★★★</div>
+            <!-- CARD 2 -->
+            <div class="col-12 col-md-6 col-lg-4">
+              <div class="card-wrapper">
+                <div class="agencia-card">
+                  <div class="front">
+                    <img
+                      class="card-img"
+                      src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=600&q=80"
+                      alt="Puna Viajes"
+                    />
+                    <div class="front-body">
+                      <p class="front-heading">Puna Viajes</p>
+                      <div class="card-divider"></div>
+                      <span class="card-badge">🌄 Puna & Quebrada</span>
+                      <p class="front-desc">
+                        Descubrí la magia de la Puna y la Quebrada con guías
+                        expertos locales.
+                      </p>
+                      <div class="stars-wrapper" aria-label="5 estrellas de 5">
+                        <div class="stars-empty">☆☆☆☆☆</div>
+                        <div class="stars-filled" style="--stars-width: 100%">
+                          ★★★★★
+                        </div>
+                      </div>
+                      <div class="flip-hint">
+                        <svg
+                          viewBox="0 0 24 24"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M12 4V1L8 5l4 4V6c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8z"
+                          />
+                        </svg>
+                        Ver más info
+                      </div>
+                    </div>
                   </div>
-                  <div class="flip-hint">
-                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 4V1L8 5l4 4V6c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8z"/></svg>
-                    Ver más info
+                  <div class="back">
+                    <p class="back-heading">Puna Viajes</p>
+                    <ul class="card-back-list">
+                      <li>📍 Tilcara, Jujuy</li>
+                      <li>📞 +54 388 500-0000</li>
+                      <li>✉ info@punaviajes.com</li>
+                      <li>🌐 Paquetes personalizados</li>
+                      <li>🦙 Cultura andina & folklore</li>
+                    </ul>
+                    <a href="contacto.html" class="btn-card">Contactar</a>
                   </div>
                 </div>
               </div>
-              <div class="back">
-                <p class="back-heading">Puna Viajes</p>
-                <ul class="card-back-list">
-                  <li>📍 Tilcara, Jujuy</li>
-                  <li>📞 +54 388 500-0000</li>
-                  <li>✉ info@punaviajes.com</li>
-                  <li>🌐 Paquetes personalizados</li>
-                  <li>🦙 Cultura andina & folklore</li>
-                </ul>
-                <a href="contacto.html" class="btn-card">Contactar</a>
-              </div>
             </div>
-          </div>
 
-          <!-- CARD 3 -->
-          <div class="container">
-            <div class="card">
-              <div class="front">
-                <img class="card-img" 
-                      src="https://images.unsplash.com/photo-1519832979-6fa011b87667?w=600&q=80" 
-                      alt="Horizonte Sur"/>
-                <div class="front-body">
-                  <p class="front-heading">Horizonte Sur</p>
-                  <div class="card-divider"></div>
-                  <span class="card-badge">🗺️ Tours Grupales</span>
-                  <p class="front-desc">Viajes grupales e individuales a los destinos más increíbles del país.</p>
-                  <div class="stars-wrapper" aria-label="3.5 estrellas de 5">
-                    <div class="stars-empty">☆☆☆☆☆</div>
-                    <div class="stars-filled" style="--stars-width: 70%">★★★★★</div>
+            <!-- CARD 3 -->
+            <div class="col-12 col-md-6 col-lg-4">
+              <div class="card-wrapper">
+                <div class="agencia-card">
+                  <div class="front">
+                    <img
+                      class="card-img"
+                      src="https://images.unsplash.com/photo-1519832979-6fa011b87667?w=600&q=80"
+                      alt="Horizonte Sur"
+                    />
+                    <div class="front-body">
+                      <p class="front-heading">Horizonte Sur</p>
+                      <div class="card-divider"></div>
+                      <span class="card-badge">🗺️ Tours Grupales</span>
+                      <p class="front-desc">
+                        Viajes grupales e individuales a los destinos más
+                        increíbles del país.
+                      </p>
+                      <div
+                        class="stars-wrapper"
+                        aria-label="3.5 estrellas de 5"
+                      >
+                        <div class="stars-empty">☆☆☆☆☆</div>
+                        <div class="stars-filled" style="--stars-width: 70%">
+                          ★★★★★
+                        </div>
+                      </div>
+                      <div class="flip-hint">
+                        <svg
+                          viewBox="0 0 24 24"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M12 4V1L8 5l4 4V6c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8z"
+                          />
+                        </svg>
+                        Ver más info
+                      </div>
+                    </div>
                   </div>
-                  <div class="flip-hint">
-                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 4V1L8 5l4 4V6c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8z"/></svg>
-                    Ver más info
+                  <div class="back">
+                    <p class="back-heading">Horizonte Sur</p>
+                    <ul class="card-back-list">
+                      <li>📍 Salta Capital</li>
+                      <li>📞 +54 387 600-0000</li>
+                      <li>✉ info@horizontesur.com</li>
+                      <li>🌐 Tours de 3 a 15 días</li>
+                      <li>👥 Grupos de hasta 30 personas</li>
+                    </ul>
+                    <a href="contacto.html" class="btn-card">Contactar</a>
                   </div>
                 </div>
               </div>
-              <div class="back">
-                <p class="back-heading">Horizonte Sur</p>
-                <ul class="card-back-list">
-                  <li>📍 Salta Capital</li>
-                  <li>📞 +54 387 600-0000</li>
-                  <li>✉ info@horizontesur.com</li>
-                  <li>🌐 Tours de 3 a 15 días</li>
-                  <li>👥 Grupos de hasta 30 personas</li>
-                </ul>
-                <a href="contacto.html" class="btn-card">Contactar</a>
-              </div>
             </div>
-          </div>
 
-          <!-- CARD 4 -->
-          <div class="container">
-            <div class="card">
-              <div class="front">
-                <img class="card-img" 
-                      src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=600&q=80" 
-                      alt="Andes Travel"/>
-                <div class="front-body">
-                  <p class="front-heading">Andes Travel</p>
-                  <div class="card-divider"></div>
-                  <span class="card-badge">🏔️ Patagonia & Glaciares</span>
-                  <p class="front-desc">Tu puerta de entrada a la Patagonia, los glaciares y los Andes.</p>
-                  <div class="stars-wrapper" aria-label="4 estrellas de 5">
-                    <div class="stars-empty">☆☆☆☆☆</div>
-                    <div class="stars-filled" style="--stars-width: 80%">★★★★★</div>
+            <!-- CARD 4 -->
+            <div class="col-12 col-md-6 col-lg-4">
+              <div class="card-wrapper">
+                <div class="agencia-card">
+                  <div class="front">
+                    <img
+                      class="card-img"
+                      src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=600&q=80"
+                      alt="Andes Travel"
+                    />
+                    <div class="front-body">
+                      <p class="front-heading">Andes Travel</p>
+                      <div class="card-divider"></div>
+                      <span class="card-badge">🏔️ Patagonia & Glaciares</span>
+                      <p class="front-desc">
+                        Tu puerta de entrada a la Patagonia, los glaciares y los
+                        Andes.
+                      </p>
+                      <div class="stars-wrapper" aria-label="4 estrellas de 5">
+                        <div class="stars-empty">☆☆☆☆☆</div>
+                        <div class="stars-filled" style="--stars-width: 80%">
+                          ★★★★★
+                        </div>
+                      </div>
+                      <div class="flip-hint">
+                        <svg
+                          viewBox="0 0 24 24"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M12 4V1L8 5l4 4V6c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8z"
+                          />
+                        </svg>
+                        Ver más info
+                      </div>
+                    </div>
                   </div>
-                  <div class="flip-hint">
-                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 4V1L8 5l4 4V6c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8z"/></svg>
-                    Ver más info
+                  <div class="back">
+                    <p class="back-heading">Andes Travel</p>
+                    <ul class="card-back-list">
+                      <li>📍 Bariloche, Río Negro</li>
+                      <li>📞 +54 294 700-0000</li>
+                      <li>✉ info@andestravel.com</li>
+                      <li>🌐 Especialistas en Patagonia</li>
+                      <li>🛶 Trekking & deportes de montaña</li>
+                    </ul>
+                    <a href="contacto.html" class="btn-card">Contactar</a>
                   </div>
                 </div>
               </div>
-              <div class="back">
-                <p class="back-heading">Andes Travel</p>
-                <ul class="card-back-list">
-                  <li>📍 Bariloche, Río Negro</li>
-                  <li>📞 +54 294 700-0000</li>
-                  <li>✉ info@andestravel.com</li>
-                  <li>🌐 Especialistas en Patagonia</li>
-                  <li>🛶 Trekking & deportes de montaña</li>
-                </ul>
-                <a href="contacto.html" class="btn-card">Contactar</a>
-              </div>
             </div>
-          </div>
 
-          <!-- CARD 5 -->
-          <div class="container">
-            <div class="card">
-              <div class="front">
-                <img class="card-img" 
-                      src="https://images.unsplash.com/photo-1530789253388-582c481c54b0?w=600&q=80" 
-                      alt="Ruta Verde"/>
-                <div class="front-body">
-                  <p class="front-heading">Ruta Verde</p>
-                  <div class="card-divider"></div>
-                  <span class="card-badge">🌿 Ecoturismo</span>
-                  <p class="front-desc">Ecoturismo responsable en los ecosistemas más diversos de Argentina.</p>
-                  <div class="stars-wrapper" aria-label="4.5 estrellas de 5">
-                    <div class="stars-empty">☆☆☆☆☆</div>
-                    <div class="stars-filled" style="--stars-width: 90%">★★★★★</div>
+            <!-- CARD 5 -->
+            <div class="col-12 col-md-6 col-lg-4">
+              <div class="card-wrapper">
+                <div class="agencia-card">
+                  <div class="front">
+                    <img
+                      class="card-img"
+                      src="https://images.unsplash.com/photo-1530789253388-582c481c54b0?w=600&q=80"
+                      alt="Ruta Verde"
+                    />
+                    <div class="front-body">
+                      <p class="front-heading">Ruta Verde</p>
+                      <div class="card-divider"></div>
+                      <span class="card-badge">🌿 Ecoturismo</span>
+                      <p class="front-desc">
+                        Ecoturismo responsable en los ecosistemas más diversos
+                        de Argentina.
+                      </p>
+                      <div
+                        class="stars-wrapper"
+                        aria-label="4.5 estrellas de 5"
+                      >
+                        <div class="stars-empty">☆☆☆☆☆</div>
+                        <div class="stars-filled" style="--stars-width: 90%">
+                          ★★★★★
+                        </div>
+                      </div>
+                      <div class="flip-hint">
+                        <svg
+                          viewBox="0 0 24 24"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M12 4V1L8 5l4 4V6c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8z"
+                          />
+                        </svg>
+                        Ver más info
+                      </div>
+                    </div>
                   </div>
-                  <div class="flip-hint">
-                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 4V1L8 5l4 4V6c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8z"/></svg>
-                    Ver más info
+                  <div class="back">
+                    <p class="back-heading">Ruta Verde</p>
+                    <ul class="card-back-list">
+                      <li>📍 Puerto Iguazú, Misiones</li>
+                      <li>📞 +54 375 800-0000</li>
+                      <li>✉ info@rutaverde.com</li>
+                      <li>🌐 Turismo sustentable</li>
+                      <li>🦜 Selva & biodiversidad</li>
+                    </ul>
+                    <a href="contacto.html" class="btn-card">Contactar</a>
                   </div>
                 </div>
               </div>
-              <div class="back">
-                <p class="back-heading">Ruta Verde</p>
-                <ul class="card-back-list">
-                  <li>📍 Puerto Iguazú, Misiones</li>
-                  <li>📞 +54 375 800-0000</li>
-                  <li>✉ info@rutaverde.com</li>
-                  <li>🌐 Turismo sustentable</li>
-                  <li>🦜 Selva & biodiversidad</li>
-                </ul>
-                <a href="contacto.html" class="btn-card">Contactar</a>
-              </div>
             </div>
-          </div>
 
-          <!-- CARD 6 -->
-          <div class="container">
-            <div class="card">
-              <div class="front">
-                <img class="card-img" 
-                      src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=80" 
-                      alt="Mar y Sol"/>
-                <div class="front-body">
-                  <p class="front-heading">Mar y Sol</p>
-                  <div class="card-divider"></div>
-                  <span class="card-badge">🏖️ Sol & Playa</span>
-                  <p class="front-desc">Los mejores destinos de playa y sol de Argentina y Sudamérica.</p>
-                  <div class="stars-wrapper" aria-label="5 estrellas de 5">
-                    <div class="stars-empty">☆☆☆☆☆</div>
-                    <div class="stars-filled" style="--stars-width: 100%">★★★★★</div>
+            <!-- CARD 6 -->
+            <div class="col-12 col-md-6 col-lg-4">
+              <div class="card-wrapper">
+                <div class="agencia-card">
+                  <div class="front">
+                    <img
+                      class="card-img"
+                      src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=80"
+                      alt="Mar y Sol"
+                    />
+                    <div class="front-body">
+                      <p class="front-heading">Mar y Sol</p>
+                      <div class="card-divider"></div>
+                      <span class="card-badge">🏖️ Sol & Playa</span>
+                      <p class="front-desc">
+                        Los mejores destinos de playa y sol de Argentina y
+                        Sudamérica.
+                      </p>
+                      <div class="stars-wrapper" aria-label="5 estrellas de 5">
+                        <div class="stars-empty">☆☆☆☆☆</div>
+                        <div class="stars-filled" style="--stars-width: 100%">
+                          ★★★★★
+                        </div>
+                      </div>
+                      <div class="flip-hint">
+                        <svg
+                          viewBox="0 0 24 24"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M12 4V1L8 5l4 4V6c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8z"
+                          />
+                        </svg>
+                        Ver más info
+                      </div>
+                    </div>
                   </div>
-                  <div class="flip-hint">
-                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 4V1L8 5l4 4V6c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8z"/></svg>
-                    Ver más info
+                  <div class="back">
+                    <p class="back-heading">Mar y Sol</p>
+                    <ul class="card-back-list">
+                      <li>📍 Mar del Plata, Buenos Aires</li>
+                      <li>📞 +54 223 900-0000</li>
+                      <li>✉ info@marysol.com</li>
+                      <li>🌐 Paquetes todo incluido</li>
+                      <li>🌊 Temporada alta y baja</li>
+                    </ul>
+                    <a href="contacto.html" class="btn-card">Contactar</a>
                   </div>
                 </div>
               </div>
-              <div class="back">
-                <p class="back-heading">Mar y Sol</p>
-                <ul class="card-back-list">
-                  <li>📍 Mar del Plata, Buenos Aires</li>
-                  <li>📞 +54 223 900-0000</li>
-                  <li>✉ info@marysol.com</li>
-                  <li>🌐 Paquetes todo incluido</li>
-                  <li>🌊 Temporada alta y baja</li>
-                </ul>
-                <a href="contacto.html" class="btn-card">Contactar</a>
-              </div>
             </div>
           </div>
-
         </div>
       </div>
-        
-
-
-    
-
     </main>
-
     <footer class="footer">
-        <div class="footer-container">
-            <div class="footer-info">
-                <h3>BlueHorizon Travel</h3>
-                <p>Tu agencia de confianza en Jujuy para el mundo.</p>
-                <div class="redes-sociales">
-                    <a href="#"><i class="fab fa-facebook"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                </div>
+      <div class="container-fluid">
+        <div class="row g-4 p-4">
+          <!-- COLUMNA 1: Info + Redes -->
+          <div class="col-12 col-md-4">
+            <h3>BlueHorizon Travel</h3>
+            <p>Tu agencia de confianza en Jujuy para el mundo.</p>
+            <div class="redes-sociales">
+              <a href="#"><i class="fab fa-facebook"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
             </div>
-            
-            <div class="footer-links">
-                <div class="radiales-wrapper">
-                    <div class="radial-nav">
-                        <a class="radial-nav-item" href="index.html">Inicio</a>
-                        <a class="radial-nav-item" href="agencia.html">Agencias</a>
-                        <a class="radial-nav-item" href="precio.html">Precios</a>
-                        <a class="radial-nav-item" href="blog.html">Blog</a>
-                        <a class="radial-nav-item" href="contacto.html">Contacto</a>
-                        <div class="radial-btn-main">Menú</div>
-                    </div>
-                    <div class="radial-nav" style="margin-top: 40px;">
-                        <a class="radial-nav-item radial-dest" href="destino.html#cultural">Cultural</a>
-                        <a class="radial-nav-item radial-dest" href="destino.html#naturaleza">Naturaleza</a>
-                        <a class="radial-nav-item radial-dest" href="destino.html#playa">Sol y Playa</a>
-                        <a class="radial-nav-item radial-dest" href="destino.html#gastronomico">Gastronómico</a>
-                        <a class="radial-nav-item radial-dest" href="destino.html#religioso">Religioso</a>
-                        <a class="radial-nav-item radial-dest" href="destino.html">Ver todos</a>
-                        <div class="radial-btn-main">Destinos</div>
-                    </div>
-                </div>
-            </div>  
-            <div class="footer-contacto">
-                <h4>Contacto</h4>
-                <p>Email: contacto@viajesunju.com.ar</p>
-                <p>Tel: +54 388 123-4567</p>
-                <div class="mapa-contenedor">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3639.243534571992!2d-65.3039126!3d-24.18074!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x941b0f4435889215%3A0xc6c7661334c9c7f9!2sViracocha%20Restaurante!5e0!3m2!1ses!2sar!4v1713000000000!5m2!1ses!2sar" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-                </div>
+          </div>
+
+          <!-- COLUMNA 2: Formulario -->
+          <div class="col-12 col-md-4">
+            <h4>Suscribite</h4>
+            <form class="footer-form">
+              <input type="text" placeholder="Tu nombre" required />
+              <input type="email" placeholder="Tu email" required />
+              <button type="submit">Enviar</button>
+            </form>
+          </div>
+
+          <!-- COLUMNA 3: Contacto + Mapa -->
+          <div class="col-12 col-md-4">
+            <h4>Contacto</h4>
+            <p>Email: contacto@viajesunju.com.ar</p>
+            <p>Tel: +54 388 123-4567</p>
+            <div class="mapa-contenedor">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3639.243534571992!2d-65.3039126!3d-24.18074!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x941b0f4435889215%3A0xc6c7661334c9c7f9!2sViracocha%20Restaurante!5e0!3m2!1ses!2sar!4v1713000000000!5m2!1ses!2sar"
+                width="100%"
+                height="150px"
+                style="border: 0"
+                allowfullscreen=""
+                loading="lazy"
+              >
+              </iframe>
             </div>
+          </div>
         </div>
-        <div class="footer-bottom">
-            <p>© creado en 2026 - TP Turismo UNJu</p>
-        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© creado en 2026 - TP Turismo UNJu</p>
+      </div>
     </footer>
-</body>
     <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="js/script.js"></script>
-</body>
+  </body>
 </html>
