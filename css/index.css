@@ -92,6 +92,7 @@ body {
   --c-900: #001d39;
   /* azul muy oscuro */
   --text-dark: #001d39;
+  --color-acento: #4e8ea2;
 }
 
 body.dark-mode {
