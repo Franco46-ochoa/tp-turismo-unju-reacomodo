@@ -93,6 +93,8 @@ body {
   /* azul muy oscuro */
   --text-dark: #001d39;
   --color-acento: #4e8ea2;
+  --color-fondo: #ffffff;
+  --color-texto: #001d39;
 }
 
 body.dark-mode {
@@ -164,6 +166,8 @@ body.dark-mode {
   --c-800: #7bbde8;
   --c-900: #bdd8e9;
   --text-dark: #bdd8e9;
+   --color-fondo: #001d39;
+  --color-texto: #bdd8e9;
 }
 
 /* Nombre de la marca */
@@ -2043,4 +2047,8 @@ input[name="slider"] { display: none; }
 
 .tabla-destinos tr:hover {
     background-color: #f9f9f9;
+}
+.formulario-card-contacto.card {
+  height: auto !important;
+  overflow: visible !important;
 }
