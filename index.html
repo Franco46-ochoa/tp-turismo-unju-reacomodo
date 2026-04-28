@@ -3,79 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BlueHorizon Travel</title>  
-    <link rel="stylesheet" href="css/index.css"> 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">    
+    <title>BlueHorizon Travel</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/agencia.css">
 </head>
 <body>
-    <header class="header">
-        <div class="logo">BlueHorizon Travel</div>
-        <nav class="nav-menu">
-            <ul>
-                <li><a href="index.html">Inicio</a></li>
-                <li class="dropdown">
-                    <a href="destino.html" aria-haspopup="true">Destinos <i class="fas fa-chevron-down"></i></a>
-                    <ul class="submenu">
-                        <li><a href="destino.html#cultural">Cultural</a></li>
-                        <li><a href="destino.html#naturaleza">Naturaleza</a></li>
-                        <li><a href="destino.html#playa">Sol y Playa</a></li>
-                        <li><a href="destino.html#gastronomico">Gastronómico</a></li>
-                        <li><a href="destino.html#religioso">Religioso</a></li>
-                    </ul>
-                </li>
-                <li><a href="agencia.html">Agencias</a></li>
-                <li><a href="contacto.html">Contacto</a></li>
-                <li><a href="precio.html">Precios</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li>
-                <button id="dark-mode-toggle" class="mod-oscuro">
-                    <i class="fas fa-moon"></i>
-                    <i class="fas fa-sun"></i>
+    <!-- HEADER CON BOOTSTRAP -->
+    <header class="position-relative video-header" style="height: auto; min-height: 70px">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
+        <div class="container-fluid px-4 flex-wrap">
+          <!-- Móvil: nombre + hamburguesa -->
+          <div class="d-flex justify-content-between align-items-center w-100 d-lg-none py-2">
+            <a class="navbar-brand fw-bold mb-0" href="index.html">BlueHorizon Travel</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuInicio">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          </div>
+          <!-- PC: nombre -->
+          <a class="navbar-brand fw-bold d-none d-lg-block" href="index.html">BlueHorizon Travel</a>
+          <!-- Menú -->
+          <div class="collapse navbar-collapse" id="menuInicio">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+              <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="destino.html" data-bs-toggle="dropdown" aria-expanded="false">Destinos</a>
+                <ul class="dropdown-menu dropdown-menu-dark">
+                  <li><a class="dropdown-item" href="destino.html#cultural">Cultural</a></li>
+                  <li><a class="dropdown-item" href="destino.html#naturaleza">Naturaleza</a></li>
+                  <li><a class="dropdown-item" href="destino.html#playa">Sol y Playa</a></li>
+                  <li><a class="dropdown-item" href="destino.html#gastronomico">Gastronómico</a></li>
+                  <li><a class="dropdown-item" href="destino.html#religioso">Religioso</a></li>
+                </ul>
+              </li>
+              <li class="nav-item"><a class="nav-link" href="agencia.html">Agencias</a></li>
+              <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+              <li class="nav-item"><a class="nav-link" href="precio.html">Precios</a></li>
+              <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+              <li class="nav-item">
+                <button id="dark-mode-toggle" class="mod-oscuro nav-link btn">
+                  <i class="fas fa-moon"></i>
+                  <i class="fas fa-sun"></i>
                 </button>
-            </li>
+              </li>
             </ul>
-        </nav>
+          </div>
+        </div>
+      </nav>
     </header>
-    <main>  
+
+    <!-- MAIN — igual que antes, no se toca -->
+    <main>
         <section class="hero">
             <video autoplay loop muted playsinline class="video-fondo">
                 <source src="assets/video-fondo.mp4" type="video/mp4">
             </video>
             <div class="overlay"></div>
-            
             <div class="hero-container">
                 <div class="hero-contenido">
                     <h1 class="titulo-animado">Descubrí tu próximo destino</h1>
                     <p class="subtitulo-hero">Explorá los mejores paisajes con nosotros</p>
                 </div>
-
                 <div class="destinos">
                     <h2 class="subtitulo">Destinos Destacados</h2>
                     <div class="destinos-grid">
                         <div class="card">
                             <img src="assets/purmamarca.jpg" alt="Cerro de los Siete Colores en Purmamarca">
-                            <div class="card-info">
-                                <h3>Purmamarca</h3>
-                                <p>Cerro de los Siete Colores.</p>
-                            </div>
+                            <div class="card-info"><h3>Purmamarca</h3><p>Cerro de los Siete Colores.</p></div>
                         </div>
                         <div class="card">
                             <img src="assets/salinas.jpg" alt="Paisaje blanco de Salinas Grandes">
-                            <div class="card-info">
-                                <h3>Salinas Grandes</h3>
-                                <p>Un mar de sal a 4000 metros.</p>
-                            </div>
+                            <div class="card-info"><h3>Salinas Grandes</h3><p>Un mar de sal a 4000 metros.</p></div>
                         </div>
                         <div class="card">
                             <img src="assets/humahuaca.jpg" alt="Iglesia y cultura en Humahuaca">
-                            <div class="card-info">
-                                <h3>Humahuaca</h3>
-                                <p>Cultura y colores milenarios.</p>
-                            </div>
+                            <div class="card-info"><h3>Humahuaca</h3><p>Cultura y colores milenarios.</p></div>
                         </div>
                     </div>
                 </div>
-
                 <section class="estadisticas">
                     <div class="stat-item">
                         <span class="count" data-goal="500"></span>
@@ -83,32 +89,19 @@
                     </div>
                 </section>
             </div>
-            
         </section>
 
         <section class="testimonios-seccion">
             <h2 class="subtitulo">Lo que dicen nuestros viajeros</h2>
-            
             <div class="carrusel-contenedor">
                 <input type="radio" name="slider" id="item-1" checked>
                 <input type="radio" name="slider" id="item-2">
                 <input type="radio" name="slider" id="item-3">
-
                 <div class="slides">
-                    <div class="slide">
-                        <p>"La mejor experiencia en Jujuy. BlueHorizon es impecable."</p>
-                        <span>- Juan Pérez</span>
-                    </div>
-                    <div class="slide">
-                        <p>"Increíbles los paquetes a las Salinas. Muy puntual todo."</p>
-                        <span>- María García</span>
-                    </div>
-                    <div class="slide">
-                        <p>"Paisajes soñados y una atención humana excepcional."</p>
-                        <span>- Carlos Ruiz</span>
-                    </div>
+                    <div class="slide"><p>"La mejor experiencia en Jujuy. BlueHorizon es impecable."</p><span>- Juan Pérez</span></div>
+                    <div class="slide"><p>"Increíbles los paquetes a las Salinas. Muy puntual todo."</p><span>- María García</span></div>
+                    <div class="slide"><p>"Paisajes soñados y una atención humana excepcional."</p><span>- Carlos Ruiz</span></div>
                 </div>
-
                 <div class="dots">
                     <label for="item-1"></label>
                     <label for="item-2"></label>
@@ -117,55 +110,44 @@
             </div>
         </section>
     </main>
-    <footer class="footer">
-        <div class="footer-container">
-            <div class="footer-info">
-                <h3>BlueHorizon Travel</h3>
-                <p>Tu agencia de confianza en Jujuy para el mundo.</p>
-                <div class="redes-sociales">
-                    <a href="#"><i class="fab fa-facebook"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                </div>
-            </div>
-            
-            <div class="footer-links">
-                <div class="radiales-wrapper">
-                <!-- Menú radial principal -->
-                    <div class="radial-nav">
-                        <a class="radial-nav-item" href="index.html">Inicio</a>
-                        <a class="radial-nav-item" href="agencia.html">Agencias</a>
-                        <a class="radial-nav-item" href="precio.html">Precios</a>
-                        <a class="radial-nav-item" href="blog.html">Blog</a>
-                        <a class="radial-nav-item" href="contacto.html">Contacto</a>
-                        <div class="radial-btn-main">Menú</div>
-                    </div>
 
-                    <!-- Menú radial destinos -->
-                    <div class="radial-nav" style="margin-top: 40px;">
-                        <a class="radial-nav-item radial-dest" href="destino.html#cultural">Cultural</a>
-                        <a class="radial-nav-item radial-dest" href="destino.html#naturaleza">Naturaleza</a>
-                        <a class="radial-nav-item radial-dest" href="destino.html#playa">Sol y Playa</a>
-                        <a class="radial-nav-item radial-dest" href="destino.html#gastronomico">Gastronómico</a>
-                        <a class="radial-nav-item radial-dest" href="destino.html#religioso">Religioso</a>
-                        <a class="radial-nav-item radial-dest" href="destino.html">Ver todos</a>
-                        <div class="radial-btn-main">Destinos</div>
-                    </div>
-                </div>
-            </div>  
-            <div class="footer-contacto">
-                <h4>Contacto</h4>
-                <p>Email: contacto@viajesunju.com.ar</p>
-                <p>Tel: +54 388 123-4567</p>
-                <div class="mapa-contenedor">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3639.243534571992!2d-65.3039126!3d-24.18074!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x941b0f4435889215%3A0xc6c7661334c9c7f9!2sViracocha%20Restaurante!5e0!3m2!1ses!2sar!4v1713000000000!5m2!1ses!2sar" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-                </div>
+    <!-- FOOTER CON BOOTSTRAP -->
+    <footer class="footer">
+      <div class="container-fluid">
+        <div class="row g-4 p-4">
+          <div class="col-12 col-md-4">
+            <h3>BlueHorizon Travel</h3>
+            <p>Tu agencia de confianza en Jujuy para el mundo.</p>
+            <div class="redes-sociales">
+              <a href="#"><i class="fab fa-facebook"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
             </div>
+          </div>
+          <div class="col-12 col-md-4">
+            <h4>Suscribite</h4>
+            <form class="footer-form">
+              <input type="text" placeholder="Tu nombre" required />
+              <input type="email" placeholder="Tu email" required />
+              <button type="submit">Enviar</button>
+            </form>
+          </div>
+          <div class="col-12 col-md-4">
+            <h4>Contacto</h4>
+            <p>Email: contacto@viajesunju.com.ar</p>
+            <p>Tel: +54 388 123-4567</p>
+            <div class="mapa-contenedor">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3639.243534571992!2d-65.3039126!3d-24.18074!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x941b0f4435889215%3A0xc6c7661334c9c7f9!2sViracocha%20Restaurante!5e0!3m2!1ses!2sar!4v1713000000000!5m2!1ses!2sar" width="100%" height="150px" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+          </div>
         </div>
-        <div class="footer-bottom">
-            <p>© creado en 2026 - TP Turismo UNJu</p>
-        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© creado en 2026 - TP Turismo UNJu</p>
+      </div>
     </footer>
-</body>
+
+    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="js/script.js"></script>
+</body>
 </html>

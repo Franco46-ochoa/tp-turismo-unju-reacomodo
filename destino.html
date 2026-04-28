@@ -1,235 +1,276 @@
-<!DOCTYPE html>
-<html lang="es">
+<!doctype html>
+<html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>BlueHorizonTravel-Destino</title>
-    <link rel="stylesheet" href="css/index.css"> 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/agencia.css" />
+    <link rel="stylesheet" href="css/index.css" />
+    
 </head>
+
 <body>
-    <header class="header">
-        <div class="logo">BlueHorizon Travel</div>
-        <nav class="nav-menu">
-            <ul>
-                <li><a href="index.html">Inicio</a></li>
-                <li class="dropdown">
-                    <a href="destino.html" aria-haspopup="true">Destinos <i class="fas fa-chevron-down"></i></a>
-                    <ul class="submenu">
-                        <li><a href="destino.html#cultural">Cultural</a></li>
-                        <li><a href="destino.html#naturaleza">Naturaleza</a></li>
-                        <li><a href="destino.html#playa">Sol y Playa</a></li>
-                        <li><a href="destino.html#gastronomico">Gastronómico</a></li>
-                        <li><a href="destino.html#religioso">Religioso</a></li>
+    <header class="position-relative video-header" style="height: auto; min-height: 70px">
+        <!-- 1. El Video de Fondo -->
+        <video class="position-absolute top-0 start-0 w-100 h-100" src="assets/video-fondo.mp4" autoplay muted loop
+            style="z-index: -1; object-fit: cover"></video>
+        <!-- 2. Contenedor de Contenido (Nav) -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
+            <div class="container-fluid px-4 flex-wrap">
+                <!-- Fila superior móvil: nombre + hamburguesa -->
+                <div class="d-flex justify-content-between align-items-center w-100 d-lg-none py-2">
+                    <a class="navbar-brand fw-bold mb-0" href="index.html">BlueHorizon Travel</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#menuDestino">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </div>
+                <!-- Nombre en PC -->
+                <a class="navbar-brand fw-bold d-none d-lg-block" href="index.html">BlueHorizon Travel</a>
+                <!-- Menú colapsable -->
+                <div class="collapse navbar-collapse" id="menuDestino">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Inicio</a>
+                        </li>
+                        <!-- Destinos con submenú Bootstrap dropdown -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="destino.html" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Destinos
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-dark">
+                                <li>
+                                    <a class="dropdown-item" href="destino.html#cultural">Cultural</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="destino.html#naturaleza">Naturaleza</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="destino.html#playa">Sol y Playa</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="destino.html#gastronomico">Gastronómico</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="destino.html#religioso">Religioso</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="agencia.html">Agencias</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contacto.html">Contacto</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="precio.html">Precios</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="blog.html">Blog</a>
+                        </li>
+                        <li class="nav-item">
+                            <button id="dark-mode-toggle" class="mod-oscuro nav-link btn">
+                                <i class="fas fa-moon"></i>
+                                <i class="fas fa-sun"></i>
+                            </button>
+                        </li>
                     </ul>
-                </li>
-                <li><a href="agencia.html">Agencias</a></li>
-                <li><a href="contacto.html">Contacto</a></li>
-                <li><a href="precio.html">Precios</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li>
-                <button id="dark-mode-toggle" class="mod-oscuro">
-                    <i class="fas fa-moon"></i>
-                    <i class="fas fa-sun"></i>
-                </button>
-            </li>
-            </ul>
+                </div>
+            </div>
         </nav>
     </header>
-    <main>  
-        <section class="hero-destinos">
-            <video autoplay loop muted playsinline class="video-destinos">
-                <source src="assets/video-fondo.mp4" type="video/mp4">
-            </video>
-        </section>
+    <section class="seccion-filtros-blanca">
+        <div class="text-center mb-4">
+            <button class="btn btn-primary filtro-btn" data-filtro="all">Todos</button>
+            <button class="btn btn-outline-primary filtro-btn" data-filtro="cultural">Cultural</button>
+            <button class="btn btn-outline-primary filtro-btn" data-filtro="naturaleza">Naturaleza</button>
+            <button class="btn btn-outline-primary filtro-btn" data-filtro="playa">Sol y Playa</button>
+            <button class="btn btn-outline-primary filtro-btn" data-filtro="gastronomico">Gastronómico</button>
+            <button class="btn btn-outline-primary filtro-btn" data-filtro="religioso">Religioso</button>
+        </div>
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-12 col-md-6 col-lg-4 destino-item cultural">
+                    <article class="card-destino">
+                        <img src="assets/purmamarca.jpg" alt="Purmamarca">
+                        <div class="card-info-destino">
+                            <span>Cultural</span>
+                            <h3>Purmamarca</h3>
+                        </div>
+                    </article>
+                </div>
 
-        <section class="seccion-filtros-blanca">
-            
-            <input type="radio" name="categoria" id="todos" checked>
-            <input type="radio" name="categoria" id="cultural">
-            <input type="radio" name="categoria" id="naturaleza">
-            <input type="radio" name="categoria" id="playa">
-            <input type="radio" name="categoria" id="gastronomico">
-            <input type="radio" name="categoria" id="religioso">
+                <div class="col-12 col-md-6 col-lg-4 destino-item naturaleza">
+                    <article class="card-destino">
+                        <img src="assets/bariloche.webp" alt="Bariloche">
+                        <div class="card-info-destino">
+                            <span>Naturaleza</span>
+                            <h3>Bariloche</h3>
+                        </div>
+                    </article>
+                </div>
 
-            <div class="botones-contenedor">
-                <label for="todos" class="btn-filtro">Todos</label>
-                <label for="cultural" class="btn-filtro">Cultural</label>
-                <label for="naturaleza" class="btn-filtro">Naturaleza</label>
-                <label for="playa" class="btn-filtro">Sol y Playa</label>
-                <label for="gastronomico" class="btn-filtro">Gastronómico</label>
-                <label for="religioso" class="btn-filtro">Religioso</label>
-            </div>
+                <div class="col-12 col-md-6 col-lg-4 destino-item religioso">
+                    <article class="card-destino">
+                        <img src="assets/humahuaca.jpg" alt="Humahuaca">
+                        <div class="card-info-destino">
+                            <span>Religioso</span>
+                            <h3>Humahuaca</h3>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4 destino-item gastronomico">
+                    <article class="card-destino">
+                        <img src="assets/cafayate.jpg" alt="El Cafayate">
+                        <div class="card-info-destino">
+                            <span>Gastronómico</span>
+                            <h3>El Cafayate</h3>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4 destino-item naturaleza">
+                    <article class="card-destino">
+                        <img src="assets/salinas.jpg" alt="Salinas Grandes">
+                        <div class="card-info-destino">
+                            <span>Naturaleza</span>
+                            <h3>Salinas Grandes</h3>
+                        </div>
+                    </article>
+                </div>
 
-            <div class="galeria-grid">
-                
-                <article class="card-destino cultural">
-                    <img src="assets/purmamarca.jpg" alt="Purmamarca">
-                    <div class="card-info-destino">
-                        <span>Cultural</span>
-                        <h3>Purmamarca</h3>
-                    </div>
-                </article>
-
-                <article class="card-destino naturaleza">
-                    <img src="assets/bariloche.webp" alt="Bariloche"> 
-                    <div class="card-info-destino">
-                        <span>Naturaleza</span>
-                        <h3>Bariloche</h3>
-                    </div>
-                </article>
-
-                <article class="card-destino religioso">
-                    <img src="assets/humahuaca.jpg" alt="Humahuaca">
-                    <div class="card-info-destino">
-                        <span>Religioso</span>
-                        <h3>Humahuaca</h3>
-                    </div>
-                </article>
-
-                <article class="card-destino gastronomico">
-                    <img src="assets/cafayate.jpg" alt="El Cafayate"> 
-                    <div class="card-info-destino">
-                        <span>Gastronómico</span>
-                        <h3>El Cafayate</h3>
-                    </div>
-                </article>
-
-                <article class="card-destino naturaleza">
-                    <img src="assets/salinas.jpg" alt="Salinas Grandes">
-                    <div class="card-info-destino">
-                        <span>Naturaleza</span>
-                        <h3>Salinas Grandes</h3>
-                    </div>
-                </article>
-
-                <article class="card-destino naturaleza">
-                    <img src="assets/ushuaia.jpg" alt="Ushuaia, Tierra del Fuego">
-                    <div class="card-info-destino">
-                        <span>Naturaleza</span>
-                        <h3>Ushuaia</h3>
-                    </div>
-                </article>
-
-                <article class="card-destino playa">
-                    <img src="assets/mardelplata.jpg" alt="Mar del Plata">
-                    <div class="card-info-destino">
-                        <span>Sol y Playa</span>
-                        <h3>Mar del Plata</h3>
-                    </div>
-                </article>
-                
+                <div class="col-12 col-md-6 col-lg-4 destino-item naturaleza">
+                    <article class="card-destino">
+                        <img src="assets/ushuaia.jpg" alt="Ushuaia, Tierra del Fuego">
+                        <div class="card-info-destino">
+                            <span>Naturaleza</span>
+                            <h3>Ushuaia</h3>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4 destino-item playa">
+                    <article class="card-destino">
+                        <img src="assets/mardelplata.jpg" alt="Mar del Plata">
+                        <div class="card-info-destino">
+                            <span>Sol y Playa</span>
+                            <h3>Mar del Plata</h3>
+                        </div>
+                    </article>
+                </div>
             </div>
 
             <div class="contenedor-tabla-precios">
                 <h2 class="subtitulo-tabla">Tarifas y Paquetes</h2>
-                <table class="tabla-destinos">
-                    <thead>
-                        <tr>
-                            <th>Destino</th>
-                            <th>Categoría</th>
-                            <th>Duración</th>
-                            <th>Precio (ARS)</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td data-label="Destino">Purmamarca</td>
-                            <td data-label="Categoría">Cultural</td>
-                            <td data-label="Duración">3 Días / 2 Noches</td>
-                            <td data-label="Precio (ARS)">$ 150.000</td>
-                        </tr>
-                        <tr>
-                            <td data-label="Destino">Humahuaca</td>
-                            <td data-label="Categoría">Religion</td>
-                            <td data-label="Duración">4 Días / 3 Noches</td>
-                            <td data-label="Precio (ARS)">$ 250.000</td>
-                        </tr>
-                        <tr>
-                            <td data-label="Destino">Salinas Grandes</td>
-                            <td data-label="Categoría">Naturaleza</td>
-                            <td data-label="Duración">3 Días / 2 Noches</td>
-                            <td data-label="Precio (ARS)">$ 275.000</td>
-                        </tr>
-                        <tr>
-                            <td data-label="Destino">Cafayate</td>
-                            <td data-label="Categoría">Gastronómico</td>
-                            <td data-label="Duración">2 Días / 1 Noche</td>
-                            <td data-label="Precio (ARS)">$ 95.000</td>
-                        </tr>
-                        <tr>
-                            <td data-label="Destino">Bariloche</td>
-                            <td data-label="Categoría">Naturaleza</td>
-                            <td data-label="Duración">5 Días / 4 Noches</td>
-                            <td data-label="Precio (ARS)">$ 320.000</td>
-                        </tr>
-                        <tr>
-                            <td data-label="Destino">Mar del Plata</td>
-                            <td data-label="Categoría">Sol y Playa</td>
-                            <td data-label="Duración">7 Días / 6 Noches</td>
-                            <td data-label="Precio (ARS)">$ 250.000</td>
-                        </tr>
-                        <tr>
-                            <td data-label="Destino">Ushuaia</td>
-                            <td data-label="Categoría">Naturaleza</td>
-                            <td data-label="Duración">6 Días / 5 Noches</td>
-                            <td data-label="Precio (ARS)">$ 450.000</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
 
-        </section>
-    </main>
-    <footer class="footer">
-        <div class="footer-container">
-            <div class="footer-info">
-                <h3>BlueHorizon Travel</h3>
-                <p>Tu agencia de confianza en Jujuy para el mundo.</p>
-                <div class="redes-sociales">
-                    <a href="#"><i class="fab fa-facebook"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                </div>
-            </div>
-            
-            <div class="footer-links">
-                <div class="radiales-wrapper">
-                <!-- Menú radial principal -->
-                    <div class="radial-nav">
-                        <a class="radial-nav-item" href="index.html">Inicio</a>
-                        <a class="radial-nav-item" href="agencia.html">Agencias</a>
-                        <a class="radial-nav-item" href="precio.html">Precios</a>
-                        <a class="radial-nav-item" href="blog.html">Blog</a>
-                        <a class="radial-nav-item" href="contacto.html">Contacto</a>
-                        <div class="radial-btn-main">Menú</div>
-                    </div>
-
-                    <!-- Menú radial destinos -->
-                    <div class="radial-nav" style="margin-top: 40px;">
-                        <a class="radial-nav-item radial-dest" href="destino.html#cultural">Cultural</a>
-                        <a class="radial-nav-item radial-dest" href="destino.html#naturaleza">Naturaleza</a>
-                        <a class="radial-nav-item radial-dest" href="destino.html#playa">Sol y Playa</a>
-                        <a class="radial-nav-item radial-dest" href="destino.html#gastronomico">Gastronómico</a>
-                        <a class="radial-nav-item radial-dest" href="destino.html#religioso">Religioso</a>
-                        <a class="radial-nav-item radial-dest" href="destino.html">Ver todos</a>
-                        <div class="radial-btn-main">Destinos</div>
-                    </div>
-                </div>
-            </div>  
-            <div class="footer-contacto">
-                <h4>Contacto</h4>
-                <p>Email: contacto@viajesunju.com.ar</p>
-                <p>Tel: +54 388 123-4567</p>
-                <div class="mapa-contenedor">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3639.243534571992!2d-65.3039126!3d-24.18074!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x941b0f4435889215%3A0xc6c7661334c9c7f9!2sViracocha%20Restaurante!5e0!3m2!1ses!2sar!4v1713000000000!5m2!1ses!2sar" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                <div class="table-responsive">
+                    <table class="tabla-destinos">
+                        <thead>
+                            <tr>
+                                <th>Destino</th>
+                                <th>Categoría</th>
+                                <th>Duración</th>
+                                <th>Precio (ARS)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td data-label="Destino">Purmamarca</td>
+                                <td data-label="Categoría">Cultural</td>
+                                <td data-label="Duración">3 Días / 2 Noches</td>
+                                <td data-label="Precio (ARS)">$ 150.000</td>
+                            </tr>
+                            <tr>
+                                <td data-label="Destino">Humahuaca</td>
+                                <td data-label="Categoría">Religioso</td>
+                                <td data-label="Duración">4 Días / 3 Noches</td>
+                                <td data-label="Precio (ARS)">$ 250.000</td>
+                            </tr>
+                            <tr>
+                                <td data-label="Destino">Salinas Grandes</td>
+                                <td data-label="Categoría">Naturaleza</td>
+                                <td data-label="Duración">3 Días / 2 Noches</td>
+                                <td data-label="Precio (ARS)">$ 275.000</td>
+                            </tr>
+                            <tr>
+                                <td data-label="Destino">Cafayate</td>
+                                <td data-label="Categoría">Gastronómico</td>
+                                <td data-label="Duración">2 Días / 1 Noche</td>
+                                <td data-label="Precio (ARS)">$ 95.000</td>
+                            </tr>
+                            <tr>
+                                <td data-label="Destino">Bariloche</td>
+                                <td data-label="Categoría">Naturaleza</td>
+                                <td data-label="Duración">5 Días / 4 Noches</td>
+                                <td data-label="Precio (ARS)">$ 320.000</td>
+                            </tr>
+                            <tr>
+                                <td data-label="Destino">Mar del Plata</td>
+                                <td data-label="Categoría">Sol y Playa</td>
+                                <td data-label="Duración">7 Días / 6 Noches</td>
+                                <td data-label="Precio (ARS)">$ 250.000</td>
+                            </tr>
+                            <tr>
+                                <td data-label="Destino">Ushuaia</td>
+                                <td data-label="Categoría">Naturaleza</td>
+                                <td data-label="Duración">6 Días / 5 Noches</td>
+                                <td data-label="Precio (ARS)">$ 450.000</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
+    </section>
+    </main>
+    <footer class="footer">
+        <div class="container-fluid">
+            <div class="row g-4 p-4">
+                <!-- COLUMNA 1: Info + Redes -->
+                <div class="col-12 col-md-4">
+                    <h3>BlueHorizon Travel</h3>
+                    <p>Tu agencia de confianza en Jujuy para el mundo.</p>
+                    <div class="redes-sociales">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+
+                <!-- COLUMNA 2: Formulario -->
+                <div class="col-12 col-md-4">
+                    <h4>Suscribite</h4>
+                    <form class="footer-form">
+                        <input type="text" placeholder="Tu nombre" required />
+                        <input type="email" placeholder="Tu email" required />
+                        <button type="submit">Enviar</button>
+                    </form>
+                </div>
+
+                <!-- COLUMNA 3: Contacto + Mapa -->
+                <div class="col-12 col-md-4">
+                    <h4>Contacto</h4>
+                    <p>Email: contacto@viajesunju.com.ar</p>
+                    <p>Tel: +54 388 123-4567</p>
+                    <div class="mapa-contenedor">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3639.243534571992!2d-65.3039126!3d-24.18074!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x941b0f4435889215%3A0xc6c7661334c9c7f9!2sViracocha%20Restaurante!5e0!3m2!1ses!2sar!4v1713000000000!5m2!1ses!2sar"
+                            width="100%" height="150px" style="border: 0" allowfullscreen="" loading="lazy">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="footer-bottom">
             <p>© creado en 2026 - TP Turismo UNJu</p>
         </div>
     </footer>
 </body>
-    <script src="js/script.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/script.js"></script>
+
 </html>

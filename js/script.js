@@ -36,6 +36,60 @@ $(document).ready(function() {
         $(this).removeClass('table-active shadow-sm');
     });
 });
+$(document).ready(function () {
+    
+    $(".filtro-btn").click(function () {
+        let filtro = $(this).data("filtro");
+
+        if (filtro === "all") {
+            $(".destino-item").show();
+        } else {
+            $(".destino-item").hide();
+            $("." + filtro).show();
+        }
+    });
+});
+
+window.addEventListener('DOMContentLoaded', activarFiltroPorHash);
+window.addEventListener('hashchange', activarFiltroPorHash);
+$(document).ready(function () {
+    
+    $(".filtro-btn").click(function () {
+        let filtro = $(this).data("filtro");
+
+        // --- CORRECCIÓN VISUAL: Manejo de clases Active ---
+        // 1. Quitamos la clase 'btn-primary' (azul) y ponemos 'btn-outline-primary' (borde) a todos
+        $(".filtro-btn").removeClass("btn-primary").addClass("btn-outline-primary");
+        
+        // 2. Al botón que tocamos, le ponemos el color azul fuerte
+        $(this).removeClass("btn-outline-primary").addClass("btn-primary");
+
+        // --- Lógica de filtrado de tu compañero ---
+        if (filtro === "all") {
+            $(".destino-item").show();
+        } else {
+            $(".destino-item").hide();
+            $("." + filtro).show();
+        }
+    });
+});
+
+$(document).ready(function() {
+    // Inicializar Tooltips de Bootstrap
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl)
+    });
+
+
+    // Hover dinámico con jQuery en la tabla
+    $('.tabla-precios tbody tr').on('mouseenter', function() {
+        $(this).addClass('table-active shadow-sm'); // Resalta la fila sutilmente
+        $(this).css('transition', 'all 0.3s ease');
+    }).on('mouseleave', function() {
+        $(this).removeClass('table-active shadow-sm');
+    });
+});
 
 
 window.addEventListener('DOMContentLoaded', activarFiltroPorHash);
