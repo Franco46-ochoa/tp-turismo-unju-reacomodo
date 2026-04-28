@@ -1,324 +1,284 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>BlueHorizonTravel-Destino</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="node_modules/bootstrap/dist/css/bootstrap.min.css"
-    />
-    <link rel="stylesheet" href="css/agencia.css" />
-  </head>
-  <body>
-    <header
-      class="position-relative  video-header"
-      style="height: auto; min-height: 70px"
-    >
-      <!-- 1. El Video de Fondo -->
-      <video
-        class="position-absolute top-0 start-0 w-100 h-100"
-        src="assets/video-fondo.mp4"
-        autoplay
-        muted
-        loop
-        style="z-index: -1; object-fit: cover"
-      ></video>
-      <!-- 2. Contenedor de Contenido (Nav) -->
-      <nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
-        <div class="container-fluid px-4 flex-wrap">
-          <!-- Fila superior móvil: nombre + hamburguesa -->
-          <div
-            class="d-flex justify-content-between align-items-center w-100 d-lg-none py-2"
-          >
-            <a class="navbar-brand fw-bold mb-0" href="index.html"
-              >BlueHorizon Travel</a
-            >
-            <button
-              class="navbar-toggler"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#menuDestino"
-            >
-              <span class="navbar-toggler-icon"></span>
-            </button>
-          </div>
-          <!-- Nombre en PC -->
-          <a class="navbar-brand fw-bold d-none d-lg-block" href="index.html"
-            >BlueHorizon Travel</a
-          >
-          <!-- Menú colapsable -->
-          <div class="collapse navbar-collapse" id="menuDestino">
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link" href="index.html">Inicio</a>
-              </li>
-              <!-- Destinos con submenú Bootstrap dropdown -->
-              <li class="nav-item dropdown">
-                <a
-                  class="nav-link dropdown-toggle"
-                  href="destino.html"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  Destinos
-                </a>
-                <ul class="dropdown-menu dropdown-menu-dark">
-                  <li>
-                    <a class="dropdown-item" href="destino.html#cultural"
-                      >Cultural</a
-                    >
-                  </li>
-                  <li>
-                    <a class="dropdown-item" href="destino.html#naturaleza"
-                      >Naturaleza</a
-                    >
-                  </li>
-                  <li>
-                    <a class="dropdown-item" href="destino.html#playa"
-                      >Sol y Playa</a
-                    >
-                  </li>
-                  <li>
-                    <a class="dropdown-item" href="destino.html#gastronomico"
-                      >Gastronómico</a
-                    >
-                  </li>
-                  <li>
-                    <a class="dropdown-item" href="destino.html#religioso"
-                      >Religioso</a
-                    >
-                  </li>
-                </ul>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="agencia.html">Agencias</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="contacto.html">Contacto</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="precio.html">Precios</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="blog.html">Blog</a>
-              </li>
-              <li class="nav-item">
-                <button id="dark-mode-toggle" class="mod-oscuro nav-link btn">
-                  <i class="fas fa-moon"></i>
-                  <i class="fas fa-sun"></i>
-                </button>
-              </li>
-            </ul>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BlueHorizonTravel-Destino</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/index.css">
+</head>
+
+<body>
+  <header class="position-relative  video-header" style="height: auto; min-height: 70px">
+    <!-- 1. El Video de Fondo -->
+    <video class="position-absolute top-0 start-0 w-100 h-100" src="assets/video-fondo.mp4" autoplay muted loop style="z-index: -1; object-fit: cover"></video>
+    <!-- 2. Contenedor de Contenido (Nav) -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
+      <div class="container-fluid px-4 flex-wrap">
+        <!-- Fila superior móvil: nombre + hamburguesa -->
+        <div class="d-flex justify-content-between align-items-center w-100 d-lg-none py-2">
+          <a class="navbar-brand fw-bold mb-0" href="index.html">BlueHorizon Travel</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuDestino">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+        <!-- Nombre en PC -->
+        <a class="navbar-brand fw-bold d-none d-lg-block" href="index.html">BlueHorizon Travel</a>
+        <!-- Menú colapsable -->
+        <div class="collapse navbar-collapse" id="menuDestino">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Inicio</a>
+            </li>
+            <!-- Destinos con submenú Bootstrap dropdown -->
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="destino.html" data-bs-toggle="dropdown" aria-expanded="false">
+                Destinos
+              </a>
+              <ul class="dropdown-menu dropdown-menu-dark">
+                <li>
+                  <a class="dropdown-item" href="destino.html#cultural">Cultural</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="destino.html#naturaleza">Naturaleza</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="destino.html#playa">Sol y Playa</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="destino.html#gastronomico">Gastronómico</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="destino.html#religioso">Religioso</a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="agencia.html">Agencias</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contacto.html">Contacto</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="precio.html">Precios</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="blog.html">Blog</a>
+            </li>
+            <li class="nav-item">
+              <button id="dark-mode-toggle" class="mod-oscuro nav-link btn">
+                <i class="fas fa-moon"></i>
+                <i class="fas fa-sun"></i>
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <div class="blog-main-content">
+      <div class="blog-intro">
+        <span class="blog-badge">Novedades</span>
+        <h1>Crónicas de Viaje</h1>
+        <p>Historias, consejos y rincones ocultos del norte argentino.</p>
+      </div>
+
+      <!-- Contenedor para toasts (Bootstrap) -->
+
+      <!-- Filtros: botones en md+ y select en móvil -->
+      <div class="container py-3">
+        <!-- Buttons visible en md+ -->
+        <div class="d-none d-md-flex justify-content-center mb-3">
+          <div class="btn-group" role="group" aria-label="Filtros">
+            <button type="button" class="btn btn-outline-primary filter-btn active" data-filter="all">Todos</button>
+            <button type="button" class="btn btn-outline-primary filter-btn" data-filter="aventura">Aventura</button>
+            <button type="button" class="btn btn-outline-primary filter-btn" data-filter="cultura">Cultura</button>
+            <button type="button" class="btn btn-outline-primary filter-btn" data-filter="tips">Tips</button>
           </div>
         </div>
-      </nav>
-    </header>
-    <main >
-        <div class="blog-main-content">
-            <div class="blog-intro">
-                <span class="blog-badge">Novedades</span>
-                <h1>Crónicas de Viaje</h1>
-                <p>Historias, consejos y rincones ocultos del norte argentino.</p>
-            </div>
 
-            <!-- Contenedor para toasts (Bootstrap) -->
-
-            <!-- Filtros: botones en md+ y select en móvil -->
-            <div class="container py-3">
-                <!-- Buttons visible en md+ -->
-                <div class="d-none d-md-flex justify-content-center mb-3">
-                    <div class="btn-group" role="group" aria-label="Filtros">
-                        <button type="button" class="btn btn-outline-primary filter-btn active" data-filter="all">Todos</button>
-                        <button type="button" class="btn btn-outline-primary filter-btn" data-filter="aventura">Aventura</button>
-                        <button type="button" class="btn btn-outline-primary filter-btn" data-filter="cultura">Cultura</button>
-                        <button type="button" class="btn btn-outline-primary filter-btn" data-filter="tips">Tips</button>
-                    </div>
-                </div>
-
-                <!-- Select visible en xs-sm -->
-                <div class="d-block d-md-none mb-3 px-3">
-                    <label for="filter-select" class="form-label visually-hidden">Filtrar artículos</label>
-                    <select id="filter-select" class="form-select" aria-label="Filtrar artículos">
-                        <option value="all">Todos</option>
-                        <option value="aventura">Aventura</option>
-                        <option value="cultura">Cultura</option>
-                        <option value="tips">Tips</option>
-                    </select>
-                </div>
-
-                <!-- Rejilla tipo revista -->
-                <div id="no-results" class="alert alert-warning d-none" role="alert">No se encontraron artículos para esa categoría.</div>
-                <div class="row g-4" id="articles-row">
-                    <article class="col-12 col-md-6 col-lg-4" data-category="aventura" data-aos="fade-up">
-                        <div class="card h-100">
-                            <img src="assets/purmamarca.jpg" class="card-img-top" alt="Purmamarca">
-                            <div class="card-body">
-                                <h5 class="card-title">La magia de caminar entre siete colores</h5>
-                                <p class="card-text">Purmamarca no es solo un destino, es una experiencia que detiene el tiempo. Te contamos cómo aprovechar al máximo tu visita al cerro más famoso del país...</p>
-                                <p class="text-muted small">Categoría: Aventura</p>
-                                <a href="#" class="btn btn-sm btn-primary">Leer historia completa</a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="col-12 col-md-6 col-lg-4" data-category="cultura" data-aos="fade-up" data-aos-delay="100">
-                        <div class="card h-100">
-                            <img src="assets/humitas.jpg" class="card-img-top" alt="Gastronomia">
-                            <div class="card-body">
-                                <h5 class="card-title">Sabores de la tierra: La ruta de la Humita</h5>
-                                <p class="card-text">El aroma del maíz fresco y el toque justo de albahaca marcan el inicio de un viaje gastronómico inolvidable.</p>
-                                <p class="text-muted small">Categoría: Cultura</p>
-                                <a href="#" class="btn btn-sm btn-primary">Leer historia completa</a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="col-12 col-md-6 col-lg-4" data-category="tips" data-aos="fade-up" data-aos-delay="200">
-                        <div class="card h-100">
-                            <img src="assets/salinas.jpg" class="card-img-top" alt="Salinas">
-                            <div class="card-body">
-                                <h5 class="card-title">5 cosas que no sabías de las Salinas Grandes</h5>
-                                <p class="text-muted small">Categoría: Tips</p>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="col-12 col-md-6 col-lg-4" data-category="tips" data-aos="fade-up" data-aos-delay="200">
-                        <div class="card h-100">
-                            <img src="assets/salinas.jpg" class="card-img-top" alt="Salinas">
-                            <div class="card-body">
-                                <h5 class="card-title">5 cosas que no sabías de las Salinas Grandes</h5>
-                                <p class="text-muted small">Categoría: Tips</p>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="col-12 col-md-6 col-lg-4" data-category="tips" data-aos="fade-up" data-aos-delay="200">
-                        <div class="card h-100">
-                            <img src="assets/salinas.jpg" class="card-img-top" alt="Salinas">
-                            <div class="card-body">
-                                <h5 class="card-title">5 cosas que no sabías de las Salinas Grandes</h5>
-                                <p class="text-muted small">Categoría: Tips</p>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="col-12 col-md-6 col-lg-4" data-category="tips" data-aos="fade-up" data-aos-delay="200">
-                        <div class="card h-100">
-                            <img src="assets/salinas.jpg" class="card-img-top" alt="Salinas">
-                            <div class="card-body">
-                                <h5 class="card-title">5 cosas que no sabías de las Salinas Grandes</h5>
-                                <p class="text-muted small">Categoría: Tips</p>
-                            </div>
-                        </div>
-                    </article>
-                    
-                    <article class="col-12 col-md-6 col-lg-4" data-category="tips" data-aos="fade-up" data-aos-delay="200">
-                        <div class="card h-100">
-                            <img src="assets/salinas.jpg" class="card-img-top" alt="Salinas">
-                            <div class="card-body">
-                                <h5 class="card-title">5 cosas que no sabías de las Salinas Grandes</h5>
-                                <p class="text-muted small">Categoría: Tips</p>
-                            </div>
-                        </div>
-                    </article>
-                </div>
-            </div>
-
-            <!-- Comentarios (simulados) -->
-            <section class="comments-section container py-4">
-                <h2 class="section-title">Comunidad de Viajeros</h2>
-                <div id="comments-list">
-                    <div class="card mb-2">
-                        <div class="card-body d-flex gap-3">
-                            <div class="avatar-css" style="width:48px;height:48px;border-radius:50%;background:#ccc;"></div>
-                            <div>
-                                <div class="d-flex align-items-baseline gap-2">
-                                    <strong>Franco Ochoa</strong>
-                                    <small class="text-muted">· hace 2 días</small>
-                                </div>
-                                <p class="mb-0">¡Increíble el diseño del blog! Las fotos de Jujuy son espectaculares, me dieron ganas de volver.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="comment-form-box mt-3">
-                    <h3>Deja tu comentario</h3>
-                    <form id="comment-form" class="row g-2">
-                        <div class="col-12 col-md-4">
-                            <input type="text" id="comment-name" class="form-control" placeholder="Tu nombre">
-                        </div>
-                        <div class="col-12">
-                            <textarea id="comment-text" class="form-control" placeholder="Cuéntanos tu experiencia..." required></textarea>
-                        </div>
-                        <div class="col-12 d-flex flex-column flex-sm-row gap-2">
-                            <button type="submit" class="btn btn-primary btn-lg rounded-pill shadow-sm fw-semibold">
-                                <i class="fas fa-paper-plane me-2"></i>Publicar
-                            </button>
-                            <button type="button" id="clear-comments" class="btn btn-outline-danger btn-lg rounded-pill">
-                                <i class="fas fa-trash-alt me-2"></i>Borrar todos
-                            </button>
-                        </div>
-                    </form>
-                </div>
-            </section>
+        <!-- Select visible en xs-sm -->
+        <div class="d-block d-md-none mb-3 px-3">
+          <label for="filter-select" class="form-label visually-hidden">Filtrar artículos</label>
+          <select id="filter-select" class="form-select" aria-label="Filtrar artículos">
+            <option value="all">Todos</option>
+            <option value="aventura">Aventura</option>
+            <option value="cultura">Cultura</option>
+            <option value="tips">Tips</option>
+          </select>
         </div>
-    </main>
-    <footer class="footer">
-      <div class="container-fluid">
-        <div class="row g-4 p-4">
-          <!-- COLUMNA 1: Info + Redes -->
-          <div class="col-12 col-md-4">
-            <h3>BlueHorizon Travel</h3>
-            <p>Tu agencia de confianza en Jujuy para el mundo.</p>
-            <div class="redes-sociales">
-              <a href="#"><i class="fab fa-facebook"></i></a>
-              <a href="#"><i class="fab fa-instagram"></i></a>
-              <a href="#"><i class="fab fa-twitter"></i></a>
-            </div>
-          </div>
 
-          <!-- COLUMNA 2: Formulario -->
-          <div class="col-12 col-md-4">
-            <h4>Suscribite</h4>
-            <form class="footer-form">
-              <input type="text" placeholder="Tu nombre" required />
-              <input type="email" placeholder="Tu email" required />
-              <button type="submit">Enviar</button>
-            </form>
-          </div>
-
-          <!-- COLUMNA 3: Contacto + Mapa -->
-          <div class="col-12 col-md-4">
-            <h4>Contacto</h4>
-            <p>Email: contacto@viajesunju.com.ar</p>
-            <p>Tel: +54 388 123-4567</p>
-            <div class="mapa-contenedor">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3639.243534571992!2d-65.3039126!3d-24.18074!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x941b0f4435889215%3A0xc6c7661334c9c7f9!2sViracocha%20Restaurante!5e0!3m2!1ses!2sar!4v1713000000000!5m2!1ses!2sar"
-                width="100%"
-                height="150px"
-                style="border: 0"
-                allowfullscreen=""
-                loading="lazy"
-              >
-              </iframe>
+        <!-- Rejilla tipo revista -->
+        <div id="no-results" class="alert alert-warning d-none" role="alert">No se encontraron artículos para esa
+          categoría.</div>
+        <div class="row g-4" id="articles-row">
+          <article class="col-12 col-md-6 col-lg-4" data-category="aventura" data-aos="fade-up">
+            <div class="card h-100">
+              <img src="assets/purmamarca.jpg" class="card-img-top" alt="Purmamarca">
+              <div class="card-body">
+                <h5 class="card-title">La magia de caminar entre siete colores</h5>
+                <p class="card-text">Purmamarca no es solo un destino, es una experiencia que detiene el tiempo. Te
+                  contamos cómo aprovechar al máximo tu visita al cerro más famoso del país...</p>
+                <p class="text-muted small">Categoría: Aventura</p>
+                <a href="#" class="btn btn-sm btn-primary">Leer historia completa</a>
+              </div>
             </div>
-          </div>
+          </article>
+
+          <article class="col-12 col-md-6 col-lg-4" data-category="cultura" data-aos="fade-up" data-aos-delay="100">
+            <div class="card h-100">
+              <img src="assets/humitas.jpg" class="card-img-top" alt="Gastronomia">
+              <div class="card-body">
+                <h5 class="card-title">Sabores de la tierra: La ruta de la Humita</h5>
+                <p class="card-text">El aroma del maíz fresco y el toque justo de albahaca marcan el inicio de un viaje
+                  gastronómico inolvidable.</p>
+                <p class="text-muted small">Categoría: Cultura</p>
+                <a href="#" class="btn btn-sm btn-primary">Leer historia completa</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="col-12 col-md-6 col-lg-4" data-category="tips" data-aos="fade-up" data-aos-delay="200">
+            <div class="card h-100">
+              <img src="assets/salinas.jpg" class="card-img-top" alt="Salinas">
+              <div class="card-body">
+                <h5 class="card-title">5 cosas que no sabías de las Salinas Grandes</h5>
+                <p class="text-muted small">Categoría: Tips</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="col-12 col-md-6 col-lg-4" data-category="tips" data-aos="fade-up" data-aos-delay="200">
+            <div class="card h-100">
+              <img src="assets/salinas.jpg" class="card-img-top" alt="Salinas">
+              <div class="card-body">
+                <h5 class="card-title">5 cosas que no sabías de las Salinas Grandes</h5>
+                <p class="text-muted small">Categoría: Tips</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="col-12 col-md-6 col-lg-4" data-category="tips" data-aos="fade-up" data-aos-delay="200">
+            <div class="card h-100">
+              <img src="assets/salinas.jpg" class="card-img-top" alt="Salinas">
+              <div class="card-body">
+                <h5 class="card-title">5 cosas que no sabías de las Salinas Grandes</h5>
+                <p class="text-muted small">Categoría: Tips</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="col-12 col-md-6 col-lg-4" data-category="tips" data-aos="fade-up" data-aos-delay="200">
+            <div class="card h-100">
+              <img src="assets/salinas.jpg" class="card-img-top" alt="Salinas">
+              <div class="card-body">
+                <h5 class="card-title">5 cosas que no sabías de las Salinas Grandes</h5>
+                <p class="text-muted small">Categoría: Tips</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="col-12 col-md-6 col-lg-4" data-category="tips" data-aos="fade-up" data-aos-delay="200">
+            <div class="card h-100">
+              <img src="assets/salinas.jpg" class="card-img-top" alt="Salinas">
+              <div class="card-body">
+                <h5 class="card-title">5 cosas que no sabías de las Salinas Grandes</h5>
+                <p class="text-muted small">Categoría: Tips</p>
+              </div>
+            </div>
+          </article>
         </div>
       </div>
 
-      <div class="footer-bottom">
-        <p>© creado en 2026 - TP Turismo UNJu</p>
+      <!-- Comentarios (simulados) -->
+      <section class="comments-section container py-4">
+        <h2 class="section-title">Comunidad de Viajeros</h2>
+        <div id="comments-list">
+          <div class="card mb-2">
+            <div class="card-body d-flex gap-3">
+              <div class="avatar-css" style="width:48px;height:48px;border-radius:50%;background:#ccc;"></div>
+              <div>
+                <div class="d-flex align-items-baseline gap-2">
+                  <strong>Franco Ochoa</strong>
+                  <small class="text-muted">· hace 2 días</small>
+                </div>
+                <p class="mb-0">¡Increíble el diseño del blog! Las fotos de Jujuy son espectaculares, me dieron ganas de
+                  volver.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="comment-form-box mt-3">
+          <h3>Deja tu comentario</h3>
+          <form id="comment-form" class="row g-2">
+            <div class="col-12 col-md-4">
+              <input type="text" id="comment-name" class="form-control" placeholder="Tu nombre">
+            </div>
+            <div class="col-12">
+              <textarea id="comment-text" class="form-control" placeholder="Cuéntanos tu experiencia..."
+                required></textarea>
+            </div>
+            <div class="col-12 d-flex flex-column flex-sm-row gap-2">
+              <button type="submit" class="btn btn-primary btn-lg rounded-pill shadow-sm fw-semibold">
+                <i class="fas fa-paper-plane me-2"></i>Publicar
+              </button>
+              <button type="button" id="clear-comments" class="btn btn-outline-danger btn-lg rounded-pill">
+                <i class="fas fa-trash-alt me-2"></i>Borrar todos
+              </button>
+            </div>
+          </form>
+        </div>
+      </section>
+    </div>
+  </main>
+  <footer class="footer">
+    <div class="container-fluid">
+      <div class="row g-4 p-4">
+        <!-- COLUMNA 1: Info + Redes -->
+        <div class="col-12 col-md-4">
+          <h3>BlueHorizon Travel</h3>
+          <p>Tu agencia de confianza en Jujuy para el mundo.</p>
+          <div class="redes-sociales">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+          </div>
+        </div>
+
+        <!-- COLUMNA 2: Formulario -->
+        <div class="col-12 col-md-4">
+          <h4>Suscribite</h4>
+          <form class="footer-form">
+            <input type="text" placeholder="Tu nombre" required />
+            <input type="email" placeholder="Tu email" required />
+            <button type="submit">Enviar</button>
+          </form>
+        </div>
+
+        <!-- COLUMNA 3: Contacto + Mapa -->
+        <div class="col-12 col-md-4">
+          <h4>Contacto</h4>
+          <p>Email: contacto@viajesunju.com.ar</p>
+          <p>Tel: +54 388 123-4567</p>
+          <div class="mapa-contenedor">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3639.243534571992!2d-65.3039126!3d-24.18074!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x941b0f4435889215%3A0xc6c7661334c9c7f9!2sViracocha%20Restaurante!5e0!3m2!1ses!2sar!4v1713000000000!5m2!1ses!2sar"
+              width="100%" height="150px" style="border: 0" allowfullscreen="" loading="lazy">
+            </iframe>
+          </div>
+        </div>
       </div>
-    </footer>
-    <!-- Toast container (centered) -->
+    </div>
+
+    <div class="footer-bottom">
+      <p>© creado en 2026 - TP Turismo UNJu</p>
+    </div>
+  </footer>
+  <!-- Toast container (centered) -->
   <div aria-live="polite" aria-atomic="true" class="position-relative">
     <div id="toast-container" class="toast-container position-fixed p-3"
       style="top:0.5rem; left:50%; transform:translateX(-50%);"></div>
@@ -331,5 +291,5 @@
   </script>
   <script src="js/script.js"></script>
 </body>
-    
+
 </html>
