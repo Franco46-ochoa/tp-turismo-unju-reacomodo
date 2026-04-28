@@ -1,0 +1,484 @@
+/* ===============================================
+    PÁGINA CONTACTO - ESTILOS ESPECÍFICOS
+   =============================================== */
+
+/* 1. SECCIÓN FORMULARIO */
+.main-contacto {
+    flex-grow: 1;
+}
+
+.formulario-section-contacto {
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    transition: all 0.3s ease;
+}
+
+.container-contacto {
+    max-width: 1200px;
+}
+
+/* 2. CARD DEL FORMULARIO */
+/* Header del formulario — azul más oscuro y profundo */
+.formulario-header-contacto {
+    background: linear-gradient(135deg, var(--precio-blue-900) 0%, var(--precio-blue-800) 100%);
+    color: white;
+}
+
+/* Borde de la card — más sutil */
+.formulario-card-contacto {
+    background-color: var(--color-fondo);
+    border: 2px solid var(--precio-blue-400) !important;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0, 29, 57, 0.12);
+    transition: all 0.3s ease;
+}
+
+.formulario-card-contacto:hover {
+    box-shadow: 0 12px 48px rgba(0, 29, 57, 0.20);
+    border-color: var(--precio-blue-700) !important;
+
+    transform: scale(1.02); /* 1.05 puede ser mucho y tapar otros elementos, 1.02 es más sutil */
+    border: 1px solid var(--precio-blue-900) !important
+}
+/* Inputs — borde más definido */
+.form-control-contacto {
+    border: 2px solid var(--precio-blue-400) !important;
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    transition: all 0.3s ease;
+}
+
+.form-control-contacto:focus {
+    border-color: var(--precio-blue-800) !important;
+    box-shadow: 0 0 0 0.2rem rgba(10, 65, 116, 0.20);
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+}
+
+/* Tarjetas de info — fondo con la paleta */
+.info-card-contacto {
+    padding: 2rem;
+    background: linear-gradient(135deg, var(--precio-blue-200) 0%, var(--precio-blue-400) 100%);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    border: 1px solid var(--precio-blue-500);
+}
+
+.info-icon-contacto {
+    font-size: 2.5rem;
+    color: var(--precio-blue-900);
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+}
+
+.info-titulo-contacto {
+    color: var(--precio-blue-900);
+    font-weight: 700;
+    font-size: 1.3rem;
+    margin: 1rem 0 0.5rem 0;
+}
+
+.info-texto-contacto {
+    color: var(--precio-blue-800);
+    font-size: 1rem;
+    margin: 0;
+}
+
+/* Modal — colores más consistentes */
+.modal-header-contacto {
+    background: linear-gradient(135deg, var(--precio-blue-900) 0%, var(--precio-blue-700) 100%);
+    border-radius: 10px 10px 0 0;
+}
+
+.btn-modal-cerrar-contacto {
+    background: linear-gradient(135deg, var(--precio-blue-800) 0%, var(--precio-blue-600) 100%);
+    color: white;
+    border: none;
+    padding: 8px 24px;
+    border-radius: 6px;
+}
+
+.btn-modal-cerrar-contacto:hover {
+    background: linear-gradient(135deg, var(--precio-blue-900) 0%, var(--precio-blue-800) 100%);
+    color: white;
+}
+/* 3. FORMULARIO - INPUTS Y LABELS */
+.form-contacto {
+    width: 100%;
+}
+
+.form-label-contacto {
+    color: var(--precio-blue-900);
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+body.dark-mode .form-label-contacto {
+    color: var(--precio-blue-200);
+}
+
+.form-control-contacto {
+    border: 2px solid var(--precio-blue-200) !important;
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    transition: all 0.3s ease;
+}
+
+.form-control-contacto:focus {
+    border-color: var(--precio-blue-600) !important;
+    box-shadow: 0 0 0 0.2rem rgba(123, 189, 232, 0.25);
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+}
+
+.form-control-contacto::placeholder {
+    color: var(--precio-blue-400);
+    opacity: 0.7;
+}
+
+/* Validación en tiempo real - válido */
+.form-control-contacto.is-valid {
+    border-color: #28a745 !important;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%2328a745' d='M2.3 6.73L.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: 1.2em;
+    padding-right: 2.5rem;
+}
+
+/* Validación en tiempo real - inválido */
+.form-control-contacto.is-invalid {
+    border-color: #dc3545 !important;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='%23dc3545' viewBox='0 0 12 12'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5h-.6z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23dc3545' stroke='none'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: 1.2em;
+    padding-right: 2.5rem;
+}
+
+/* 4. MENSAJES DE ERROR */
+.error-contacto {
+    display: block;
+    animation: slideInUp 0.3s ease;
+    font-weight: 500;
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 5. CONTADOR DE CARACTERES */
+.contador-caracteres-contacto {
+    color: var(--precio-blue-600);
+    font-weight: 500;
+}
+
+body.dark-mode .contador-caracteres-contacto {
+    color: var(--precio-blue-400);
+}
+
+/* 6. SPINNER DE CARGA */
+.spinner-border-contacto {
+    color: var(--precio-blue-600);
+    width: 3rem;
+    height: 3rem;
+    border-width: 0.3em;
+}
+
+body.dark-mode .spinner-border-contacto {
+    color: var(--precio-blue-400);
+}
+
+.texto-spinner-contacto {
+    color: var(--precio-blue-600);
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+body.dark-mode .texto-spinner-contacto {
+    color: var(--precio-blue-400);
+}
+
+/* 7. BOTÓN ENVIAR */
+button.btn-enviar-contacto,
+button.btn-enviar-contacto:focus,
+button.btn-enviar-contacto:active {
+    background: linear-gradient(135deg, #0A4174 0%, #4E8EA2 100%) !important;
+    color: #ffffff !important;
+    border: none !important;
+    border-radius: 8px;
+    padding: 0.75rem 2rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    box-shadow: none !important;
+}
+
+button.btn-enviar-contacto:not(:disabled):hover {
+    background: linear-gradient(135deg, #001D39 0%, #0A4174 100%) !important;
+    color: #ffffff !important;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(10, 65, 116, 0.4) !important;
+}
+
+button.btn-enviar-contacto:disabled {
+    background: linear-gradient(135deg, #6EA2B3 0%, #7BBDE8 100%) !important;
+    color: #ffffff !important;
+    cursor: not-allowed;
+    opacity: 0.65;
+}
+
+button.btn-enviar-contacto i {
+    color: #ffffff !important;
+}
+
+/* 8. TARJETAS DE INFORMACIÓN */
+.info-card-contacto {
+    padding: 2rem;
+    background: linear-gradient(135deg, var(--precio-blue-200) 0%, rgba(189, 216, 233, 0.5) 100%);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    border: 1px solid var(--precio-blue-400);
+}
+
+body.dark-mode .info-card-contacto {
+    background: linear-gradient(135deg, var(--precio-blue-700) 0%, rgba(73, 118, 159, 0.5) 100%);
+}
+
+.info-card-contacto:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(123, 189, 232, 0.2);
+}
+
+.info-icon-contacto {
+    font-size: 2.5rem;
+    color: var(--precio-blue-700);
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+}
+
+body.dark-mode .info-icon-contacto {
+    color: var(--precio-blue-400);
+}
+
+.info-card-contacto:hover .info-icon-contacto {
+    transform: scale(1.2) rotate(10deg);
+}
+
+.info-titulo-contacto {
+    color: var(--precio-blue-900);
+    font-weight: 700;
+    font-size: 1.3rem;
+    margin: 1rem 0 0.5rem 0;
+}
+
+body.dark-mode .info-titulo-contacto {
+    color: var(--precio-blue-200);
+}
+
+.info-texto-contacto {
+    color: var(--precio-blue-800);
+    font-size: 1rem;
+    margin: 0;
+}
+
+body.dark-mode .info-texto-contacto {
+    color: var(--precio-blue-300);
+}
+
+/* 9. MODAL DE CONFIRMACIÓN */
+.modal-contacto {
+    --bs-modal-bg: var(--color-fondo);
+}
+
+.modal-content-contacto {
+    background-color: var(--color-fondo);
+    border: 2px solid var(--precio-blue-400);
+    border-radius: 12px;
+}
+
+.modal-header-contacto {
+    background: linear-gradient(135deg, var(--precio-blue-700) 0%, var(--precio-blue-600) 100%);
+    border-radius: 10px 10px 0 0;
+}
+
+.modal-title-contacto {
+    color: white;
+    font-size: 1.3rem;
+}
+
+.modal-body-contacto {
+    color: var(--color-texto);
+}
+
+.mensaje-modal-contacto {
+    font-size: 1.1rem;
+    color: var(--precio-blue-900);
+    font-weight: 500;
+}
+
+body.dark-mode .mensaje-modal-contacto {
+    color: var(--precio-blue-200);
+}
+
+.modal-footer-contacto {
+    background-color: var(--color-fondo);
+}
+
+.btn-modal-cerrar-contacto {
+    background: linear-gradient(135deg, var(--precio-blue-700) 0%, var(--precio-blue-600) 100%);
+    color: white;
+    border: none;
+}
+
+.btn-modal-cerrar-contacto:hover {
+    background: linear-gradient(135deg, var(--precio-blue-800) 0%, var(--precio-blue-700) 100%);
+    color: white;
+}
+
+/* 10. RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+    .titulo-contacto {
+        font-size: 2rem;
+    }
+
+    .subtitulo-contacto {
+        font-size: 1rem;
+    }
+
+    .hero-contacto {
+        min-height: 60vh;
+        margin-top: 60px;
+    }
+
+    .formulario-body-contacto {
+        padding: 2rem 1.5rem !important;
+    }
+
+    .formulario-titulo-contacto {
+        font-size: 1.5rem;
+    }
+
+    .form-control-contacto {
+        padding: 0.65rem 0.85rem;
+        font-size: 0.95rem;
+    }
+
+    .form-label-contacto {
+        font-size: 0.95rem;
+    }
+
+    .btn-enviar-contacto {
+        padding: 0.65rem 1.5rem;
+        font-size: 1rem;
+    }
+
+    .info-card-contacto {
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .info-icon-contacto {
+        font-size: 2rem;
+    }
+
+    .info-titulo-contacto {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .titulo-contacto {
+        font-size: 1.5rem;
+    }
+
+    .subtitulo-contacto {
+        font-size: 0.9rem;
+    }
+
+    .hero-contacto {
+        min-height: 50vh;
+        margin-top: 50px;
+    }
+
+    .formulario-header-contacto {
+        padding: 1.5rem 1rem !important;
+    }
+
+    .formulario-body-contacto {
+        padding: 1.5rem 1rem !important;
+    }
+
+    .formulario-titulo-contacto {
+        font-size: 1.2rem;
+    }
+
+    .form-label-contacto {
+        font-size: 0.9rem;
+    }
+
+    .form-control-contacto {
+        padding: 0.55rem 0.75rem;
+        font-size: 0.9rem;
+    }
+
+    .btn-enviar-contacto {
+        padding: 0.6rem 1rem;
+        font-size: 0.95rem;
+    }
+
+    .form-control-contacto.is-valid,
+    .form-control-contacto.is-invalid {
+        background-size: 1rem;
+        padding-right: 2.2rem;
+    }
+
+    .info-card-contacto {
+        padding: 1rem;
+    }
+
+    .info-icon-contacto {
+        font-size: 1.8rem;
+    }
+
+    .info-titulo-contacto {
+        font-size: 1rem;
+        margin: 0.8rem 0 0.3rem 0;
+    }
+
+    .info-texto-contacto {
+        font-size: 0.95rem;
+    }
+}
+
+/* 11. ANIMACIONES GLOBALES */
+@media (prefers-reduced-motion: no-preference) {
+    .form-control-contacto {
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .btn-enviar-contacto {
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .info-card-contacto {
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+}
