@@ -194,3 +194,72 @@ document.addEventListener('DOMContentLoaded', function() {
     // Inicialización
     verificarFormulario();
     });
+    /* =========================================================
+   FILTRO DEL BLOG
+   ========================================================= */
+
+document.addEventListener('DOMContentLoaded', function () {
+
+    // Solo ejecutar si estamos en la página del blog
+    if (!document.getElementById('articles-row')) return;
+
+    const articulos = document.querySelectorAll('#articles-row article');
+    const btnsFiltro = document.querySelectorAll('.filter-btn');
+    const selectFiltro = document.getElementById('filter-select');
+    const noResults = document.getElementById('no-results');
+
+    // Función que filtra los artículos
+    function filtrar(categoria) {
+        let visibles = 0;
+
+        articulos.forEach(function (articulo) {
+            const cat = articulo.getAttribute('data-category');
+            if (categoria === 'all' || cat === categoria) {
+                articulo.style.display = '';  // muestra
+                visibles++;
+            } else {
+                articulo.style.display = 'none';  // oculta
+            }
+        });
+
+        // Muestra mensaje si no hay resultados
+        if (visibles === 0) {
+            noResults.classList.remove('d-none');
+        } else {
+            noResults.classList.add('d-none');
+        }
+    }
+
+    // Botones en PC
+    btnsFiltro.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+            // Saca la clase active de todos y la pone en el clickeado
+            btnsFiltro.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            // Sincroniza el select en móvil
+            const categoria = btn.getAttribute('data-filter');
+            if (selectFiltro) selectFiltro.value = categoria;
+
+            filtrar(categoria);
+        });
+    });
+
+    // Select en móvil
+    if (selectFiltro) {
+        selectFiltro.addEventListener('change', function () {
+            const categoria = this.value;
+
+            // Sincroniza los botones en PC
+            btnsFiltro.forEach(function (btn) {
+                btn.classList.remove('active');
+                if (btn.getAttribute('data-filter') === categoria) {
+                    btn.classList.add('active');
+                }
+            });
+
+            filtrar(categoria);
+        });
+    }
+
+});
