@@ -41,161 +41,156 @@ $(document).ready(function() {
 window.addEventListener('DOMContentLoaded', activarFiltroPorHash);
 window.addEventListener('hashchange', activarFiltroPorHash);
 
-// jQuery: filtro por categorías y comentarios simulados
-$(function(){
-    // función para mostrar Toasts de Bootstrap
-    function showToast(message, type = 'success', delay = 3000) {
-        const id = 'toast-' + Date.now();
-        const toastHtml = `
-            <div id="${id}" class="toast align-items-center text-bg-${type} border-0" role="alert" aria-live="assertive" aria-atomic="true">
-              <div class="d-flex">
-                <div class="toast-body">${message}</div>
-                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Cerrar"></button>
-              </div>
-            </div>`;
-        const $container = $('#toast-container');
-        if ($container.length) {
-            const $el = $(toastHtml);
-            $container.append($el);
-            const toast = new bootstrap.Toast($el.get(0), { delay });
-            $el.on('hidden.bs.toast', function () { $el.remove(); });
-            toast.show();
-        } else {
-            alert(message);
-        }
+/* =========================================================
+   FUNCIONALIDADES DEL FORMULARIO DE CONTACTO
+   ========================================================= */
+
+document.addEventListener('DOMContentLoaded', function() {
+    
+    // Solo ejecutar si estamos en la página de contacto
+    if (!document.getElementById('formularioContacto')) {
+        return;
     }
 
-    // filtro por botones
-    $('.filter-btn').on('click', function(){
-        const cat = $(this).data('filter');
-        $('.filter-btn').removeClass('active');
-        $(this).addClass('active');
-        // sincronizar select en móviles
-        if($('#filter-select').length) $('#filter-select').val(cat);
-        applyFilter(cat);
-    });
+    // ====== SELECCIÓN DE ELEMENTOS ======
+    const formulario = $('#formularioContacto');
+    const nombre = $('#nombre-contacto');
+    const email = $('#email-contacto');
+    const asunto = $('#asunto-contacto');
+    const mensaje = $('#mensaje-contacto');
+    const btnEnviar = $('#btnEnviar');
+    const spinner = $('#spinnerCarga');
+    const charCount = $('#char-count');
 
-    // filtro por select (móvil)
-    $('#filter-select').on('change', function(){
-        const cat = $(this).val();
-        // sincronizar botones (si están visibles)
-        $('.filter-btn').removeClass('active');
-        $(`.filter-btn[data-filter="${cat}"]`).addClass('active');
-        applyFilter(cat);
-    });
+    // ====== FUNCIONES DE VALIDACIÓN ======
+    function validarEmail(emailValue) {
+        const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return regex.test(emailValue);
+    }
 
-    // función común de filtrado
-    function applyFilter(cat){
-        if(cat === 'all'){
-            $('#articles-row article').fadeIn(200);
+    function validarNombre(nombreValue) {
+        return nombreValue.trim().length >= 3;
+    }
+
+    function validarAsunto(asuntoValue) {
+        return asuntoValue.trim().length >= 5;
+    }
+
+    function validarMensaje(mensajeValue) {
+        return mensajeValue.trim().length >= 10 && mensajeValue.trim().length <= 500;
+    }
+
+    // ====== VALIDACIÓN EN TIEMPO REAL ======
+    nombre.on('input', function() {
+        const valor = $(this).val();
+        if (valor.length === 0) {
+            nombre.removeClass('is-valid is-invalid');
+            $('#error-nombre').text('');
+        } else if (validarNombre(valor)) {
+            nombre.removeClass('is-invalid').addClass('is-valid');
+            $('#error-nombre').text('');
         } else {
-            $('#articles-row article').each(function(){
-                const itemCat = $(this).data('category');
-                $(this).toggle(itemCat === cat);
-            });
+            nombre.removeClass('is-valid').addClass('is-invalid');
+            $('#error-nombre').text('El nombre debe tener al menos 3 caracteres');
         }
-        // mostrar mensaje si no hay resultados visibles
-        setTimeout(() => {
-            const visible = $('#articles-row article:visible').length;
-            if (visible === 0) {
-                $('#no-results').removeClass('d-none');
-            } else {
-                $('#no-results').addClass('d-none');
+        verificarFormulario();
+    });
+
+    email.on('input', function() {
+        const valor = $(this).val();
+        if (valor.length === 0) {
+            email.removeClass('is-valid is-invalid');
+            $('#error-email').text('');
+        } else if (validarEmail(valor)) {
+            email.removeClass('is-invalid').addClass('is-valid');
+            $('#error-email').text('');
+        } else {
+            email.removeClass('is-valid').addClass('is-invalid');
+            $('#error-email').text('Ingresá un email válido (ej: usuario@ejemplo.com)');
+        }
+        verificarFormulario();
+    });
+
+    asunto.on('input', function() {
+        const valor = $(this).val();
+        if (valor.length === 0) {
+            asunto.removeClass('is-valid is-invalid');
+            $('#error-asunto').text('');
+        } else if (validarAsunto(valor)) {
+            asunto.removeClass('is-invalid').addClass('is-valid');
+            $('#error-asunto').text('');
+        } else {
+            asunto.removeClass('is-valid').addClass('is-invalid');
+            $('#error-asunto').text('El asunto debe tener al menos 5 caracteres');
+        }
+        verificarFormulario();
+    });
+
+    mensaje.on('input', function() {
+        const valor = $(this).val();
+        const longitud = valor.length;
+        charCount.text(longitud + '/500');
+
+        if (valor.length === 0) {
+            mensaje.removeClass('is-valid is-invalid');
+            $('#error-mensaje').text('');
+        } else if (validarMensaje(valor)) {
+            mensaje.removeClass('is-invalid').addClass('is-valid');
+            $('#error-mensaje').text('');
+        } else {
+            mensaje.removeClass('is-valid').addClass('is-invalid');
+            if (longitud < 10) {
+                $('#error-mensaje').text('El mensaje debe tener al menos 10 caracteres');
+            } else if (longitud > 500) {
+                $('#error-mensaje').text('El mensaje no puede exceder 500 caracteres');
             }
-        }, 220); // coincide con fadeIn timing
+        }
+        verificarFormulario();
+    });
+
+    // ====== VERIFICAR SI TODOS LOS CAMPOS SON VÁLIDOS ======
+    function verificarFormulario() {
+        const todosValidos =
+            validarNombre(nombre.val()) &&
+            validarEmail(email.val()) &&
+            validarAsunto(asunto.val()) &&
+            validarMensaje(mensaje.val());
+
+        btnEnviar.prop('disabled', !todosValidos);
     }
 
-    // comentarios simulados con persistencia en localStorage
-    const COMMENTS_KEY = 'bh_comments_v1';
-
-    function saveCommentsToStorage(list){
-        try{
-            localStorage.setItem(COMMENTS_KEY, JSON.stringify(list));
-        }catch(e){ console.warn('No se pudo guardar en localStorage', e); }
-    }
-
-    function loadCommentsFromStorage(){
-        try{
-            const raw = localStorage.getItem(COMMENTS_KEY);
-            return raw ? JSON.parse(raw) : [];
-        }catch(e){ console.warn('Error leyendo localStorage', e); return []; }
-    }
-
-    function renderCommentItem(c){
-        const safeText = $('<div>').text(c.text).html();
-        const html = `
-            <div class="card mb-2" data-id-comment="${c.id}">
-                <div class="card-body d-flex gap-3">
-                    <div class="avatar-css" style="width:48px;height:48px;border-radius:50%;background:#ccc;"></div>
-                    <div class="flex-grow-1">
-                        <div class="d-flex justify-content-between align-items-baseline">
-                            <div class="d-flex align-items-baseline gap-2">
-                                <strong>${c.name}</strong>
-                                <small class="text-muted">· ${c.time}</small>
-                            </div>
-                            <button class="btn btn-sm btn-link text-danger delete-comment" data-id="${c.id}" aria-label="Eliminar">Eliminar</button>
-                        </div>
-                        <p class="mb-0">${safeText}</p>
-                    </div>
-                </div>
-            </div>`;
-        return html;
-    }
-
-    // renderizar existentes
-    const stored = loadCommentsFromStorage();
-    if(stored && stored.length){
-        stored.slice().reverse().forEach(c => $('#comments-list').append(renderCommentItem(c)));
-    }
-
-    // Autoresize para el textarea de comentarios
-    function autoResizeTextarea(el){
-        try{
-            el.style.height = 'auto';
-            el.style.height = (el.scrollHeight) + 'px';
-        }catch(e){ /* noop */ }
-    }
-
-    $('#comment-text').on('input', function(){ autoResizeTextarea(this); });
-    // inicializar tamaño correcto si hay texto previo
-    $('#comment-text').each(function(){ autoResizeTextarea(this); });
-
-    $('#comment-form').on('submit', function(e){
+    // ====== ENVÍO DEL FORMULARIO ======
+    formulario.on('submit', function(e) {
         e.preventDefault();
-        const name = $('#comment-name').val().trim() || 'Anónimo';
-        const text = $('#comment-text').val().trim();
-        if(!text) return;
-        const time = new Date().toLocaleString();
 
-        const comment = { id: Date.now().toString(), name, text, time };
+        btnEnviar.prop('disabled', true);
+        spinner.removeClass('d-none');
 
-        // guardar
-        const list = loadCommentsFromStorage();
-        list.push(comment);
-        saveCommentsToStorage(list);
+        setTimeout(function() {
+            spinner.addClass('d-none');
 
-        // renderizar en pantalla (al inicio)
-        $('#comments-list').prepend(renderCommentItem(comment));
-        this.reset();
-        // forzar recalculo del tamaño al limpiar el form
-        $('#comment-text').trigger('input');
-        showToast('Comentario publicado correctamente.', 'success', 3000);
+            const modalConfirmacion = new bootstrap.Modal(
+                document.getElementById('modalConfirmacion')
+            );
+            modalConfirmacion.show();
+
+            // Limpiar formulario
+            formulario[0].reset();
+            nombre.removeClass('is-valid is-invalid');
+            email.removeClass('is-valid is-invalid');
+            asunto.removeClass('is-valid is-invalid');
+            mensaje.removeClass('is-valid is-invalid');
+            charCount.text('0/500');
+            btnEnviar.prop('disabled', true);
+
+            // Cerrar modal automáticamente a los 3 segundos
+            setTimeout(function() {
+                modalConfirmacion.hide();
+            }, 3000);
+
+        }, 2000);
     });
 
-    // eliminar comentario individual
-    $('#comments-list').on('click', '.delete-comment', function(){
-        const id = String($(this).data('id'));
-        let list = loadCommentsFromStorage();
-        list = list.filter(c => String(c.id) !== id);
-        saveCommentsToStorage(list);
-        // quitar del DOM
-        $(this).closest('[data-id-comment]').remove();
+    // Inicialización
+    verificarFormulario();
     });
-
-    // limpiar todos
-    $('#clear-comments').on('click', function(){
-        if(!confirm('¿Borrar todos los comentarios? Esta acción no se puede deshacer.')) return;
-        try{ localStorage.removeItem(COMMENTS_KEY); }catch(e){ console.warn(e); }
-        $('#comments-list').empty();
-    });
-});
